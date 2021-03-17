@@ -1,8 +1,8 @@
 package 剑指offer_Java;
+import 剑指offer_Java.*;
 
 
 public class ReplaceSpaces {
-    
     //方法一: 遍历替换
     public String replaceSpace(StringBuffer str) {
         if (str == null || str.length() == 0) {
