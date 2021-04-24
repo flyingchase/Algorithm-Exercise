@@ -1,5 +1,4 @@
-package Function;
-import java.util.ArrayList;
+ package Function;
 import InnerStruct.*;
 
 public class ListOperate {
@@ -14,5 +13,13 @@ public class ListOperate {
             other=temp;
         }
         return head;
+    }
+    public  void printListNode(ListNode head) {
+        ListNode temp =head;
+        while (temp!=null) {
+            System.out.print(temp.val+" ");
+            temp=temp.next;
+        }
+        System.out.println();
     }
 }
