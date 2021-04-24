@@ -30,6 +30,7 @@ public class MergeList {
             }
             cur=cur.next;
         }
+        // 不同于数组 有未合并的部分直接将节点纳入辅助节点后即可 无需遍历
         if(list1!=null) {
             cur.next=list1;
         }
