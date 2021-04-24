@@ -30,6 +30,5 @@ public class FindKthToTail {
         listOperate.printListNode(head);
         head=findKthToTail(head, 1);
         listOperate.printListNode(head);
-
     }
 }
