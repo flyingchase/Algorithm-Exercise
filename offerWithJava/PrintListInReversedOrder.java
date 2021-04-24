@@ -1,9 +1,10 @@
-package 剑指offer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Stack;
 
-
+import Function.*;
+import InnerStruct.*;
 /**
  * PrintListInReversedOrder 
  * 输入一个链表，按链表值从尾到头的顺序返回一个 `ArrayList`。
@@ -12,19 +13,9 @@ import java.util.Stack;
  * 
  */
 
-class ListNode{
-    int val;
-    ListNode next=null;
-    ListNode(int val) {
-        this.val=val;
-    }
-    ListNode(int val, ListNode next) {
-        this.val=val;
-        this.next=next;
-    }
-}
 public class PrintListInReversedOrder {
-
+    ListNode he = new ListNode(-1);
+    
     // 递归 
     public static ArrayList<Integer> print01ReversedOrderListNode(ListNode listNode) {
         ArrayList<Integer> ret = new ArrayList<>();
@@ -68,13 +59,17 @@ public class PrintListInReversedOrder {
     public static void main(String[] args) {
         int[] nums={1,2,3,4,5,6,7,8,9,0};
         Integer[] integers = Arrays.stream(nums).boxed().toArray(Integer[]::new);
-        ListNode head = new ListNode(integers[0]);
-        ListNode other =head;
-        for (int i=1;i<integers.length;i++) {
-            ListNode temp = new ListNode(integers[i]);
-            other.next=temp;
-            other = temp;
-        }
+        // ListNode head = new ListNode(integers[0]);
+        // ListNode other =head;
+        // for (int i=1;i<integers.length;i++) {
+        //     ListNode temp = new ListNode(integers[i]);
+        //     other.next=temp;
+        //     other = temp;
+        // }
+        ListOperate listOperate = new ListOperate();
+
+        ListNode head = ((ListOperate) listOperate).arrayToListNode(nums);
+        
         ArrayList<Integer> arr = new ArrayList<>();
         arr= print01ReversedOrderListNode(head);
         System.out.println(arr.toString());
