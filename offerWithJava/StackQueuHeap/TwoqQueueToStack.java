@@ -1,4 +1,6 @@
 package StackQueuHeap;
+/*
+双队列实现栈操作· */
 
 import java.util.LinkedList;
 import java.util.Queue;
