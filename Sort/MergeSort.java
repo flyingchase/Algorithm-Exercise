@@ -53,4 +53,22 @@ public class MergeSort extends AbstractSort {
         mSort.showArray(nums);
 
     }
+    public static void heapsort(int[] nums) {
+        if (nums.length<2||nums==null) {
+            return;
+
+        }
+        for (int i = 0; i < nums.length; i++) {
+            heapinsert(nums,i);
+        }
+        int size = nums.length;
+
+    }
+
+    public static void heapinsert(int[] nums, int index) {
+
+    }
+    public static void heapify(int[] nums, int idnex, int size) {
+
+    }
 }

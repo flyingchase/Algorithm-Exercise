@@ -1,15 +1,15 @@
 /*
  * @Author: gunjianpan
- * @Date:   2021-05-08 17:23:18
+ * @Date:   2021-05-12 16:47:09
  * @Last Modified by:   gunjianpan
- * @Last Modified time: 2021-05-08 17:55:19
+ * @Last Modified time: 2021-05-14 13:38:35
  */
-package ListNode;
 
 public class ListNode {
-    int val;
-    ListNode next =new ListNode();
-    ListNode(int val){
+    public int val;
+    public ListNode next;
+    public ListNode(int val) {
         this.val=val;
     }
+
 }

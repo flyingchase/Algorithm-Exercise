@@ -11,23 +11,23 @@ import java.util.Arrays;
 public class FindNumbersWithSum {
     public ArrayList<Integer> FindNumbersWithSum(int[] array, int sum) {
         ArrayList<Integer> reList = new ArrayList<>();
-        if(array==null||array.length<2||sum<=array[0]) {
+        if (array == null || array.length < 2 || sum <= array[0]) {
             return reList;
         }
-        int left=0,right=array.length-1;
-        while (left<right) {
-            int curSum=array[left] +array[right];
-            if(curSum==sum) {
+        int left = 0, right = array.length - 1;
+        while (left < right) {
+            int curSum = array[left] + array[right];
+            if (curSum == sum) {
                 reList.add(array[left]);
                 reList.add(array[right]);
                 return reList;
-            } else if(curSum<sum) {
+            } else if (curSum < sum) {
                 left++;
-            }else{
+            } else {
                 right--;
             }
         }
-        Arrays.asList(array[left],array[right]);
+        Arrays.asList(array[left], array[right]);
         return reList;
 
     }

@@ -11,36 +11,42 @@ import 剑指offer_Java.*;
 */
 public class PrintToMaxN {
 
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        PrintToMaxN maxN = new PrintToMaxN();
+        maxN.printToMaxN1(n);
+    }
+
     // 数字转化成数组
     private void PrintNumber(char[] chars) {
-        int index=0;
-        int n=chars.length;
-        for(char ch:chars) {
-            if(ch!='0') break;
+        int index = 0;
+        int n = chars.length;
+        for (char ch : chars) {
+            if (ch != '0') break;
             ++index;
         }
-        StringBuilder sb =new StringBuilder();
-        for(int i=index;i<n;++i){
+        StringBuilder sb = new StringBuilder();
+        for (int i = index; i < n; ++i) {
             sb.append(chars[i]);
         }
         System.out.println(sb.toString());
     }
 
     // 检查是否溢出
-    private boolean increment(char[] chars){
-        boolean flag=false;
-        int n= chars.length;
-        int carry =1;
-        for(int i=n-1;i>=0;--i){
-            int num = chars[i]-'0'+carry;
-            if(num>9) {
-                if(i==0) {
-                    flag=true;
+    private boolean increment(char[] chars) {
+        boolean flag = false;
+        int n = chars.length;
+        int carry = 1;
+        for (int i = n - 1; i >= 0; --i) {
+            int num = chars[i] - '0' + carry;
+            if (num > 9) {
+                if (i == 0) {
+                    flag = true;
                     break;
                 }
-                chars[i]='0';
-            }
-            else{
+                chars[i] = '0';
+            } else {
                 ++chars[i];
                 break;
             }
@@ -60,13 +66,6 @@ public class PrintToMaxN {
             PrintNumber(chars);
 
         }
-    }
-
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        PrintToMaxN maxN= new PrintToMaxN();
-        maxN.printToMaxN1(n);
     }
 
 }

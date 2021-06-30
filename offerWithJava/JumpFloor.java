@@ -6,5 +6,5 @@ package 剑指offer_Java;
 
 */
 public class JumpFloor {
-    
+
 }

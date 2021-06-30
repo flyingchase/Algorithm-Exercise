@@ -1,10 +1,8 @@
-package DataStructure;
-
-
+package DataSturture;
 
 public class ListNode {
     public int val;
-    public ListNode Next;
+    public ListNode next;
 
     public ListNode(int val) {
         this.val = val;

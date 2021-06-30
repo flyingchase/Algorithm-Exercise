@@ -1,0 +1,10 @@
+{
+    "superBG.disable": false,
+    "java.project.sourcePaths": [
+        "DataStructure/ListNode",
+        "DataStructure",
+        "DataStruct/test",
+        "DailyExercise",
+        "Structure"
+    ]
+}

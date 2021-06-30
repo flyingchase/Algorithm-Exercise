@@ -31,10 +31,10 @@ public class DeleteNode {
 
     public static void main(String[] args) {
         ListOperate listOperate = new ListOperate();
-        int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 };
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
         ListNode head = listOperate.arrayToListNode(nums);
         ListNode tobeDelete = head.next.next;
-        head=deleteNode(head, tobeDelete);
+        head = deleteNode(head, tobeDelete);
         listOperate.printListNode(head);
     }
 }

@@ -13,9 +13,9 @@ public class IsPopOrder {
     public static boolean isPopOrder(int[] pushSequence, int[] popSequence) {
         int n = pushSequence.length;
         Stack<Integer> stack = new Stack<>();
-        for(int pushIndex =0,popIndex=0;pushIndex<n;pushIndex++) {
+        for (int pushIndex = 0, popIndex = 0; pushIndex < n; pushIndex++) {
             stack.push(pushSequence[pushIndex]);
-            while (popIndex<n&& !stack.isEmpty()&&stack.peek()==popSequence[popIndex]) {
+            while (popIndex < n && !stack.isEmpty() && stack.peek() == popSequence[popIndex]) {
                 stack.pop();
                 popIndex++;
             }
@@ -24,8 +24,8 @@ public class IsPopOrder {
     }
 
     public static void main(String[] args) {
-        int[] popSequence = {1,2,3,4,5,6,7,8,9,0};
-        int[] pushSequence = {0,9,8,7,6,5,4,3,2,1};
-        System.out.println((isPopOrder(pushSequence, popSequence))?"yes":"no");
+        int[] popSequence = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+        int[] pushSequence = {0, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+        System.out.println((isPopOrder(pushSequence, popSequence)) ? "yes" : "no");
     }
 }

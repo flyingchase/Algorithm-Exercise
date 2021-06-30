@@ -12,7 +12,7 @@ in 栈用来处理入栈（push）操作，out 栈用来处理出栈（pop）操
 
 ###  */
 public class TwoStackToQueue {
-    Stack<Integer> in= new Stack<>();
+    Stack<Integer> in = new Stack<>();
     Stack<Integer> out = new Stack<>();
 
     public void push(int node) {
@@ -20,12 +20,12 @@ public class TwoStackToQueue {
     }
 
     public int pop() throws Exception {
-        if(out.isEmpty()) {
+        if (out.isEmpty()) {
             while (!in.isEmpty()) {
                 out.push(in.pop());
             }
         }
-        if(out.isEmpty()) {
+        if (out.isEmpty()) {
             throw new Exception("queue is empty!\n");
         }
         return out.pop();

@@ -10,44 +10,44 @@ import InnerStruct.ListNode;
 public class EntryNodeOfLoop {
     // 快慢双指针法
     public ListNode ntryNodeOfLoop(ListNode pHeap) {
-        if(pHeap==null||pHeap.next==null) {
+        if (pHeap == null || pHeap.next == null) {
             return null;
         }
-        ListNode slow=pHeap,fast=pHeap;
-        boolean flag =false;
+        ListNode slow = pHeap, fast = pHeap;
+        boolean flag = false;
         // 确保有环
-        while (fast.next!=null&&fast!=null) {
-            slow=slow.next;
-            fast=fast.next.next;
-            if(fast==slow) {
-                flag=true;
+        while (fast.next != null && fast != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (fast == slow) {
+                flag = true;
                 break;
             }
         }
         // 链表无环
-        if(!flag) {
+        if (!flag) {
             return null;
         }
         // 记录下快慢指针相遇点
-        ListNode cur=slow.next;
+        ListNode cur = slow.next;
         // 求出环的长度
-        int cnt=1;
-        while (cur!=slow) {
-            cur=cur.next;
+        int cnt = 1;
+        while (cur != slow) {
+            cur = cur.next;
             cnt++;
         }
 
         // 指针p1从头节点开始走cnt环长
-        ListNode p1=pHeap;
+        ListNode p1 = pHeap;
         for (int i = 0; i < cnt; i++) {
-            p1=p1.next;
+            p1 = p1.next;
         }
 
         // 指针p2从头节点开始与p1同步走 首次相遇即为环入口
-        ListNode p2=pHeap;
-        while (p1!=p2) {
-            p1=p1.next;
-            p2=p2.next;
+        ListNode p2 = pHeap;
+        while (p1 != p2) {
+            p1 = p1.next;
+            p2 = p2.next;
         }
         return p1;
     }

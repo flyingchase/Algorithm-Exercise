@@ -1,5 +1,22 @@
 # 剑指offer-思路
 
+
+
+## 替换空格
+
+使用从尾到头遍历数组形式修改数组：
+
+1. 使用Java本身的`API`
+   - `str.charAt(index)`
+   - `str.replace(index,index+1,”%20")`
+2. 辅助数组
+   - 遍历得到blankCount 得到辅助数组dest的长度
+   - `for(int i=source.length-1,j=dest.length-1;i>=0&&j>=0;i—,j—)`
+3. 原地 从尾到头 
+   - `str.setLength(newIndex+1);`
+
+
+
 ## 41.2 字符流中第一个非重复字符
 
 ### 题目描述

@@ -1,4 +1,5 @@
 package InnerStruct;
+
 public class TreeNode {
     int val;
     TreeNode left;

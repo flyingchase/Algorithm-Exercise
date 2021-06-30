@@ -33,6 +33,17 @@ public class BubbleSort extends AbstractSort {
         }
         
     }
+public static void heapsort(int[] nums) {
+    if (nums==null||nums.length<2) {
+        return;
+    }
+
+}
+
+    public static void heapify(int[] nums, int index, int size) {
+
+    }
+
 
     public static void main(String[] args) {
         Integer[] nums = new Integer[]{1,0,9,2,8,3,7,4,6,5,1,11,19,17,14};

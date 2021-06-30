@@ -1,8 +1,32 @@
 package 剑指offer_Java;
+
+import java.util.ArrayList;
+
 import 剑指offer_Java.*;
 
 
 public class ReplaceSpaces {
+    public static void main(String[] args) {
+        StringBuffer s = new StringBuffer("tian qi bu cuo ha");
+        String s1 = new String();
+        ReplaceSpaces solution = new ReplaceSpaces();
+        s1 = solution.replaceSpace(s);
+        ReplaceSpaces solution2 = new ReplaceSpaces();
+        String s2 = new String(solution2.replaceSpace1(s));
+        System.out.println("这是指针法的结果:" + s2);
+        System.out.println("这是遍历法的结果:" + s1);
+
+        // new ArrayList().var
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+        for (int i = 0; i < nums.length; i++) {
+
+        }
+
+
+    }
+
+    //方法二: 双指针
+
     //方法一: 遍历替换
     public String replaceSpace(StringBuffer str) {
         if (str == null || str.length() == 0) {
@@ -18,26 +42,24 @@ public class ReplaceSpaces {
         return sb.toString();
     }
 
-    //方法二: 双指针
-
-    public String replaceSpace1(StringBuffer str){
-        if(str == null || str.length()==0)  return str.toString();
+    public String replaceSpace1(StringBuffer str) {
+        if (str == null || str.length() == 0) return str.toString();
         int len = str.length();
-        for(int i = 0;i<len;i++){
-            if(str.charAt(i)==' ') str.append("  ");
+        for (int i = 0; i < len; i++) {
+            if (str.charAt(i) == ' ') str.append("  ");
         }
         //p指向原字符串的末尾
-        int p =len-1;
+        int p = len - 1;
         // q指向现字符串的末尾
-        int q=str.length()-1;
-        
-        while (p>=0) {
+        int q = str.length() - 1;
+
+        while (p >= 0) {
             char ch = str.charAt(p--);
-            if(ch==' '){
+            if (ch == ' ') {
                 str.setCharAt(q--, '0');
                 str.setCharAt(q--, '2');
                 str.setCharAt(q--, '%');
-            }else{
+            } else {
                 str.setCharAt(q--, ch);
             }
         }
@@ -45,18 +67,5 @@ public class ReplaceSpaces {
         return str.toString();
 
     }
-
-    public static void main(String[] args) {
-        StringBuffer s = new StringBuffer("tian qi bu cuo ha");
-        String s1 = new String();
-        ReplaceSpaces solution= new ReplaceSpaces();
-        s1 = solution.replaceSpace(s);
-        ReplaceSpaces solution2 = new ReplaceSpaces();
-        String s2= new String(solution2.replaceSpace1(s));
-        System.out.println("这是指针法的结果:"+s2);
-        System.out.println("这是遍历法的结果:"+s1);
-
-        
-    }
-        // replaceSpace.
+    // replaceSpace.
 }
