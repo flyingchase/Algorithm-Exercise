@@ -22,4 +22,5 @@ public class _104_MaxDepthOfBinaryTree {
 
         System.out.println("MaxDepthOfBinaryTree(root) = " + MaxDepthOfBinaryTree(root));
     }
+
 }
