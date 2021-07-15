@@ -24,5 +24,6 @@ public class _889_constructFromPrePost {
 
         TreeNode root = new TreeNode(pre[0]);
 
+        return null;
     }
 }
