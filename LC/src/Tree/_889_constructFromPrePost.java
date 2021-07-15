@@ -2,12 +2,7 @@ package Tree;
 
 import DataStructure.TreeNode;
 
-public class _104_MaxDepthOfBinaryTree {
-    public static int MaxDepthOfBinaryTree(TreeNode root) {
-        return root == null ? 0 : 1 + Math.max(MaxDepthOfBinaryTree(root.left), MaxDepthOfBinaryTree(root.right));
-
-    }
-
+public class _889_constructFromPrePost {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -18,9 +13,16 @@ public class _104_MaxDepthOfBinaryTree {
         root.right.left = new TreeNode(6);
         root.left.left.left = new TreeNode(8);
         root.left.left.right = new TreeNode(9);
-        root.left.left.right.left = new TreeNode(10);
 
-        System.out.println("MaxDepthOfBinaryTree(root) = " + MaxDepthOfBinaryTree(root));
+
     }
 
+    public static TreeNode constructFromPrePost (int[] pre, int[] post) {
+        if (pre==null||post==null||post.length!=pre.length) {
+            return null;
+        }
+
+        TreeNode root = new TreeNode(pre[0]);
+
+    }
 }

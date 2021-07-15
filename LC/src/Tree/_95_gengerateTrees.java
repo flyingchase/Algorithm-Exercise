@@ -2,4 +2,66 @@ package Tree;
 
 public class _95_gengerateTrees {
 
+    public static void main(String[] args) {
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 package Tree;
 
-public class VerifySqueueceOfBST33 {
+public class _33_VerifySqueueceOfBST {
     // 二叉搜索树的后序遍历序列判断
     public static boolean VerifySqueueOfBST(int[] seques) {
         if (seques==null||seques.length==0) {

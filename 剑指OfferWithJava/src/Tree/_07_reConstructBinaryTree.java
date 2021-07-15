@@ -4,7 +4,7 @@ import DataStructure.TreeNode;
 
 @SuppressWarnings({"all"})
 
-public class reConstructBinaryTree07 {
+public class _07_reConstructBinaryTree {
     public static TreeNode reConstructBinaryTree01(int[] pre, int[] in) {
         if (pre==null||in==null||pre.length == 0||in.length==0||pre.length!=in.length) {
             return null;

@@ -2,7 +2,7 @@ package Tree;
 
 import DataStructure.TreeNode;
 
-public class MirrorTree26 {
+public class _26_MirrorTree {
     public static void MirrorTree(TreeNode root ) {
         if (root==null) {
             return;

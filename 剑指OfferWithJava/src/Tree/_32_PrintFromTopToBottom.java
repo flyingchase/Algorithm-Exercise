@@ -5,7 +5,7 @@ import DataStructure.TreeNode;
 import java.lang.reflect.Array;
 import java.util.*;
 
-public class PrintFromTopToBottom32 {
+public class _32_PrintFromTopToBottom {
     // 层次打印 按照数字
     public static ArrayList<Integer> printFromToBottom(TreeNode root) {
         Queue<TreeNode> queue = new LinkedList<>();
