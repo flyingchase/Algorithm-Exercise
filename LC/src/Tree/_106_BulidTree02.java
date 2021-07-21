@@ -3,6 +3,8 @@ package Tree;
 import DataStructure.TreeNode;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
 
 @SuppressWarnings({"all"})
 public class _106_BulidTree02 {
@@ -55,4 +57,14 @@ public class _106_BulidTree02 {
         }
         return root;
     }
+
+    PriorityQueue<Integer> minheap = new PriorityQueue<>();
+    PriorityQueue<Integer> maxheap = new PriorityQueue<>(Collections.reverseOrder());
+
+//    minheap.add();
+//    peek() 查看堆顶元素
+//    poll() 弹出堆顶元素并删除
+//    size() 堆的大小
+
+
 }
