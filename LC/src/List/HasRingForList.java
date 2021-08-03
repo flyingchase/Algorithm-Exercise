@@ -25,23 +25,23 @@ public class HasRingForList {
         ListNode p07 = new ListNode(7);
         ListNode p08 = new ListNode(8);
         ListNode p09 = new ListNode(9);
-        head.Next = p1;
-        p1.Next = p2;
-        p2.Next = p3;
-        p3.Next = p4;
-        p4.Next = p5;
-        p5.Next = p6;
-        p6.Next = p7;
-        p7.Next = p8;
-        p8.Next = p9;
+        head.next = p1;
+        p1.next = p2;
+        p2.next = p3;
+        p3.next = p4;
+        p4.next = p5;
+        p5.next = p6;
+        p6.next = p7;
+        p7.next = p8;
+        p8.next = p9;
 
-        head1.Next = p01;
-        p01.Next = p02;
+        head1.next = p01;
+        p01.next = p02;
 //        p02.Next = p03;
 //        p03.Next = p04;
 //        p04.Next = p05;
 //        p02.Next = p06;
-        p02.Next = p7;
+        p02.next = p7;
 
 //        p06.Next = p7;
 //        p7.Next=p4;
@@ -60,25 +60,25 @@ public class HasRingForList {
             ListNode cur = head, cur1 = head1;
             while (cur != null) {
                 cnt++;
-                cur = cur.Next;
+                cur = cur.next;
 
             }
             while (cur1 != null) {
                 cnt1++;
-                cur1 = cur1.Next;
+                cur1 = cur1.next;
             }
 
             int gap = Math.abs(cnt - cnt1);
             while (gap-- > 0) {
                 if (cnt > cnt1) {
-                    head = head.Next;
+                    head = head.next;
                 } else {
-                    head1 = head1.Next;
+                    head1 = head1.next;
                 }
             }
             while (head!=head1) {
-                head = head.Next;
-                head1=head1.Next;
+                head = head.next;
+                head1=head1.next;
             }
             System.out.println(head.val);
         }
@@ -92,16 +92,16 @@ public class HasRingForList {
         }
         ListNode fast = head, slow = head;
         do {
-            fast = fast.Next.Next;
-            slow = slow.Next;
+            fast = fast.next.next;
+            slow = slow.next;
         } while (fast != slow && fast != null && slow != null);
         if (fast != slow) {
             return null;
         }
         fast = head;
         while (fast != slow) {
-            fast = fast.Next;
-            slow = slow.Next;
+            fast = fast.next;
+            slow = slow.next;
         }
         return slow;
 
