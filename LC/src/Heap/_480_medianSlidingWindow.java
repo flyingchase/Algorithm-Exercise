@@ -46,7 +46,7 @@ public class _480_medianSlidingWindow {
         }
 
         if (minHeap.size()==maxHeap.size()) {
-            return ((double)minHeap.poll()+maxHeap.poll())/2.0;
+            return ((double)minHeap.poll()/2.0+maxHeap.poll()/2.0)/1.0;
         }else {
             return minHeap.poll()*1.0;
         }

@@ -3,10 +3,10 @@ package Array;
 
 import java.util.Arrays;
 
-public class _189_rotateArray {
+public class E_189_rotateArray {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, 5, 6};
-        new _189_rotateArray().rotate(nums, 7);
+        new E_189_rotateArray().rotate(nums, 7);
         System.out.println(Arrays.toString(nums));
     }
 

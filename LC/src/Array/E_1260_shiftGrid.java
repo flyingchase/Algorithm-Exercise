@@ -7,7 +7,7 @@ import java.util.List;
 /*给你一个 m 行 n 列的二维网格 grid 和一个整数 k。你需要将 grid 迁移 k 次。
 
  */
-public class _1260_shiftGrid {
+public class E_1260_shiftGrid {
     public List<List<Integer>> shiftGrid(int[][] grid, int k) {
         int row = grid.length, col = grid[0].length;
         int newK = k % (row * col);

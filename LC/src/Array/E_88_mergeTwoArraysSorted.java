@@ -5,7 +5,7 @@ package Array;
 请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。
 
 */
-public class _88_mergeTwoArraysSorted {
+public class E_88_mergeTwoArraysSorted {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         int[] res = new int[m + n];
         int p1 = 0, p2 = 0, i = 0;
