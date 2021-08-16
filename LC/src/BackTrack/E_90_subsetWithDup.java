@@ -7,7 +7,7 @@ import java.util.*;
 解集 不能 包含重复的子集。返回的解集中，子集可以按 任意顺序 排列。
 
 */
-public class _90_subsetWithDup {
+public class E_90_subsetWithDup {
 /*    public List<List<Integer>> subsetWithDup(int[] nums) {
         Arrays.sort(nums);
         Set<List<Integer>> ans = new HashSet<>();
@@ -19,7 +19,7 @@ public class _90_subsetWithDup {
     public static void main(String[] args) {
         int[] nums = {11, 0, 9, 2, 6, 3, 8, 4, 7, 5, 16, 1, 14, 12, 13, 15};
 
-        System.out.println(Arrays.toString(new _90_subsetWithDup().quickSort(nums, 0, nums.length - 1)));
+        System.out.println(Arrays.toString(new E_90_subsetWithDup().quickSort(nums, 0, nums.length - 1)));
     }
     /*
     private void dfs(int[] nums, int u, List<Integer> cur, Set<List<Integer>> ans) {

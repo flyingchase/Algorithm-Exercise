@@ -4,12 +4,12 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 
-public class _4_findMedianSortedArrays {
+public class E_4_findMedianSortedArrays {
     PriorityQueue<Integer> minHeap, maxHeap;
 
     public static void main(String[] args) {
         int[] nums1 = {1, 2}, nums2 = {3, 4};
-        System.out.println(new _4_findMedianSortedArrays().findMedianSortedArrays(nums1, nums2));
+        System.out.println(new E_4_findMedianSortedArrays().findMedianSortedArrays(nums1, nums2));
 
     }
 
