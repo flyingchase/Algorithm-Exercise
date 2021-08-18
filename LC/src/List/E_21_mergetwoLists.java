@@ -4,7 +4,7 @@ import DataStructure.ListNode;
 
 import java.util.PriorityQueue;
 
-public class _21_mergetwoLists {
+public class E_21_mergetwoLists {
 
     public static void main(String[] args) {
         ListNode head = new ListNode(0);
@@ -28,7 +28,7 @@ public class _21_mergetwoLists {
         // 环
         p7.next=p8;
 
-        ListNode listNode = new _21_mergetwoLists().mergeTwoLists1(p1, p5);
+        ListNode listNode = new E_21_mergetwoLists().mergeTwoLists1(p1, p5);
         while (listNode != null) {
             System.out.println(listNode.val);
             listNode=listNode.next;
