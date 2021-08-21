@@ -2,6 +2,7 @@ package Tree;
 
 import DataStructure.TreeNode;
 
+import java.time.chrono.IsoChronology;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -49,5 +50,28 @@ public class _103_zigzagLevelOrder {
         }
 //        Collections.reverse(res);
         return res;
+    }
+
+    // recuersive
+    public List<List<Integer>> levelOrder (TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        dfs(root,res,0);
+        return res;
+    }
+
+    private void dfs(TreeNode root, List<List<Integer>> res, int height) {
+        if (root==null) {
+            return;
+        }
+        if (height>=res.size()) {
+            res.add(new ArrayList<>());
+        }
+        res.get(height).add(root.val);
+        if (root.left!=null) {
+            dfs(root.left,res,height+1);
+        }
+        if (root.right!=null) {
+            dfs(root.right,res,height+1);
+        }
     }
 }

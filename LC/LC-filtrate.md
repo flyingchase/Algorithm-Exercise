@@ -227,5 +227,120 @@ public void flatten(TreeNode root) {
 
 
 
+## 127 单词接龙-BFS
+
+### 题意
+
+字典 wordList 中从单词 beginWord 和 endWord 的 转换序列 是一个按下述规格形成的序列：
+
+​	序列中第一个单词是 beginWord 。
+​	序列中最后一个单词是 endWord 。
+​	每次转换只能改变一个字母。
+​	转换过程中的中间单词必须是字典 wordList 中的单词。
+给你两个单词 beginWord 和 endWord 和一个字典 wordList ，找到从 beginWord 到 endWord 的 最短转换序列 中的 单词数目 。如果不存在这样的转换序列，返回 0。
+
+### 思路：
+
+- 传统 BFS
+
+  - 构造 set 字典存储 wordList queue 作为遍历路径
+
+  - 双层遍历 确保 str 每个位置被替换 26 次
+
+    - 替换中 set.contains 存在则 set.remove queue.offer
+
+  - ```java
+    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
+        Set<String> set = new HashSet<>(wordList);
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(beginWord);
+        int step = 1, len = beginWord.length();
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            while (size-- > 0) {
+                String cur = queue.poll();
+                if (cur.equals(endWord)) {
+                    return step;
+                }
+                for (int i = 0; i < len; i++) {
+                    // 单词的每个位置均替换
+                    for (char ch = 'a'; ch <= 'z'; ch++) {
+                        StringBuilder next = new StringBuilder(cur);
+                        next.setCharAt(i, ch);
+                        String nextWord = next.toString();
+                        if (set.contains(nextWord)) {
+                            if (nextWord.equals(endWord)) {
+                                return step + 1;
+                            }
+                            // or deadwhile
+                            set.remove(nextWord);
+                            queue.offer(nextWord);
+                        }
+                    }
+                }
+            }
+            step++;
+        }
+        return 0;
+    }
+    ```
+
+
+
+- 双向 BFS
+  - 同时从起点终点开始扩展 直到交集出现
+    - <img src="https://cdn.jsdelivr.net/gh/flyingchase/Private-Img@master/uPic/image-20210821162748064.png" alt="image-20210821162748064" style="zoom:50%;" />
+
+
+
+
+
+
+
+
+
+
+
+## 490 505迷宫-二维 BFS
+
+``` java
+int[][] dirs = {{0,1},{0,-1},{-1,0},{1,0}};
+    public int shortestDistance(int[][] maze, int[] start, int[] destination) {
+        int[][] distance = new int[maze.length][maze[0].length];
+        for (int[] row : distance) {
+            Arrays.fill(row,Integer.MAX_VALUE);
+        }
+        distance[start[0]][start[1]]=0;
+        dijkstra(maze,start,distance);
+        return distance[destination[0]][destination[1]] == Integer.MAX_VALUE ? -1 : distance[destination[0]][destination[1]];
+    }
+
+    private void dijkstra(int[][] maze, int[] start, int[][] distance) {
+        PriorityQueue<int[]> q = new PriorityQueue<>((a, b) -> (a[2] - b[2]));
+        q.offer(new int[]{start[0],start[1]});
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            for (int[] dir : dirs) {
+                int x = cur[0] + dir[0];
+                int y = cur[1] + dir[1];
+                int count =0;
+                while (x >= 0 && y >= 0 && x < maze.length && y < maze[0].length && maze[x][y] == 0) {
+                    x+=dir[0];
+                    y+=dir[1];
+                    count++;
+                }
+                x-=dir[0];
+                y-=dir[1];
+                if (distance[cur[0]][cur[1]]+count< distance[x][y]) {
+                    distance[x][y]=distance[cur[0]][cur[1]]+count;
+                    q.add(new int[]{x,y,distance[x][y]});
+                }
+            }
+        }
+    }
+```
+
+
+
 
 

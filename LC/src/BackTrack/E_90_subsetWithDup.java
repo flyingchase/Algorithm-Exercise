@@ -1,5 +1,9 @@
 package BackTrack;
 
+import DataStructure.TreeNode;
+
+import javax.management.ListenerNotFoundException;
+import java.awt.event.ItemListener;
 import java.util.*;
 
 /*给你一个整数数组 nums ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。
@@ -38,6 +42,21 @@ public class E_90_subsetWithDup {
     */
 
 
+
+    public List<Integer> inordeTravinorders (TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        helper(root,res);
+        return res;
+    }
+
+    private void helper(TreeNode root, List<Integer> res) {
+        if (root==null) {
+            return;
+        }
+        helper(root.left,res);
+        res.add(root.val);
+        helper(root.right, res);
+    }
 
     public int[] quickSort(int[] nums ,int l, int r) {
         if (l<r) {
