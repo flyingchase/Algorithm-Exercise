@@ -8,6 +8,180 @@ LC 881
 
 
 
+
+
+
+
+## 101 对称二叉树
+
+### 题意
+
+​	给定一个二叉树，检查它是否是镜像对称的。
+
+
+
+### 思路：
+
+- 递归 要求左右两侧子树均对称 
+
+  - `return isSymmetric(leftRoot.left,rightRoot.right)&& isSymmetric(leftRoot.right,rightRoot.left)`
+
+  - 左侧子树的右子树与右侧子树的左子树比较
+
+  - ```java
+    public boolean isSymmetric (TreeNode root) {
+        if (root==null) {
+            return true;
+        }
+        TreeNode cur = root;
+        return isSymmetric(cur.left,cur.right);
+    }
+    
+    private boolean isSymmetric(TreeNode lRoot, TreeNode rRoot) {
+        if (lRoot==null&&rRoot==null) {
+            return true;
+        }
+        if (lRoot==null||rRoot==null) {
+            return false;
+        }
+        // 上述两个 if 可以替换成
+            if(lRoot==null || rRoot==null)
+            return lRoot==rRoot;
+        if (lRoot.val!=rRoot.val) {
+            return false;
+        }
+    
+        return isSymmetric(lRoot.left,rRoot.right)&&isSymmetric(rRoot.left,lRoot.right);
+    }
+    ```
+
+- 迭代 使用 queue 保证先进先出
+
+  - 将 root 的 left 和 right 依次入队  并 poll 出来比较
+  - 再将 left.right right.left 和left.left right.right 依次入堆  循环弹出
+  - 注意：`left==right\==null`时 contine ！queue.isEmpty()的循环
+
+  
+
+- BFS
+
+
+
+
+
+
+
+## 113 二叉树路径和
+
+### 题意
+
+给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
+
+叶子节点 是指没有子节点的节点。
+
+
+
+
+
+### 思路：
+
+- stack 实现 DFS
+  - 保存上个节点 prev 做到回溯
+- 回溯 recursive
+
+
+
+### codes
+
+```java
+package Tree;
+
+import DataStructure.TreeNode;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+/*给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
+
+叶子节点 是指没有子节点的节点。*/
+public class E_113_pathSum {
+
+    // use satck to implement dfs
+    //
+    // public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+    //     if (root==null) {
+    //         return null;
+    //     }
+    //     TreeNode cur = root;
+    //     TreeNode prev = null;
+    //     Stack<TreeNode> stack = new Stack<>();
+    //     List<Integer> path = new ArrayList<>();
+    //     List<List<Integer>> res = new ArrayList<>();
+    //     int sum=0;
+    //     while (cur != null || !stack.isEmpty()) {
+    //         while (cur != null) {
+    //             stack.push(cur);
+    //             path.add(cur.val);
+    //             sum+=cur.val;
+    //             cur=cur.left;
+    //         }
+    //         cur = stack.peek();
+    //         if (cur.right!=null&&cur.right!=prev) {
+    //             cur=cur.right;
+    //             continue;
+    //         }
+    //         if (cur.left==null&&cur.right==null&&sum==targetSum) {
+    //             res.add(new ArrayList<>(path));
+    //         }
+    //
+    //         prev=cur;
+    //         stack.pop();
+    //         path.remove(path.size()-1);
+    //         sum-=cur.val;
+    //         cur=null;
+    //     }
+    //
+    //     return res;
+    // }
+
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        if (root==null) {
+            return null;
+        }
+        List<Integer> path = new ArrayList<>();
+        List<List<Integer>> res = new ArrayList<>();
+        int sum=0;
+        TreeNode cur = root;
+        dfs(cur,sum,res,path);
+        return res;
+
+    }
+
+    private void dfs(TreeNode root, int sum, List<List<Integer>> res, List<Integer> path) {
+        if (root==null) {
+            return;
+        }
+        path.add(root.val);
+        if (root.left==null&&root.right==null) {
+            if (root.val==sum) {
+                res.add(new ArrayList<>(path));
+            }
+            return;
+        }
+
+        if (root.left==null) {
+            dfs(root.left,sum-root.val,res,path);
+            path.remove(path.size()-1);
+        }
+        if (root.right==null) {
+            dfs(root.right,sum-root.val,res,path);
+        }
+    }
+}
+```
+
 ## 114 二叉树转换为链表
 
 ### 题意
@@ -46,3 +220,12 @@ public void flatten(TreeNode root) {
 
 - 非递归：
   - 不断将左子树拆下来接到右边去。然后将左子树与右子树连接。
+
+
+
+
+
+
+
+
+
