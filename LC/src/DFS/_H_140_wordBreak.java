@@ -11,11 +11,11 @@ import java.util.List;
 //
 // 分隔时可以重复使用字典中的单词。
 // 你可以假设字典中没有重复的单词。
-public class H_140_wordBreak {
+public class _H_140_wordBreak {
     public static void main(String[] args) {
         String s = "catsanddog";
         List<String> wordDict = Arrays.asList("cat", "cats", "and", "sand", "dog");
-        System.out.println(new H_140_wordBreak().wordBreak(s, wordDict));
+        System.out.println(new _H_140_wordBreak().wordBreak(s, wordDict));
     }
 
     public List<String> wordBreak(String s, List<String> wordDict) {
