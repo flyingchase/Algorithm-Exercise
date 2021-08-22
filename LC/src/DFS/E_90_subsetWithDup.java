@@ -1,9 +1,7 @@
-package BackTrack;
+package DFS;
 
 import DataStructure.TreeNode;
 
-import javax.management.ListenerNotFoundException;
-import java.awt.event.ItemListener;
 import java.util.*;
 
 /*给你一个整数数组 nums ，其中可能包含重复元素，请你返回该数组所有可能的子集（幂集）。
@@ -40,7 +38,25 @@ public class E_90_subsetWithDup {
 
     }
     */
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
+        dfs(res,new ArrayList<Integer>(),nums,0);
+        return res;
+    }
 
+    private void dfs(List<List<Integer>> res, List<Integer> level, int[] nums, int index) {
+        res.add(new ArrayList<>(level));
+        for (int i = index; i < nums.length; i++) {
+            // the same iterm will be ignored except i==index
+            if (i!=index&&nums[i]==nums[i-1]) {
+                continue;
+            }
+            level.add(nums[i]);
+            dfs(res,level,nums,i+1);
+            level.remove(level.size()-1);
+        }
+    }
 
 
     public List<Integer> inordeTravinorders (TreeNode root) {

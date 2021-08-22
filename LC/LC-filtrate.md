@@ -59,7 +59,7 @@ LC 881
 
   - 将 root 的 left 和 right 依次入队  并 poll 出来比较
   - 再将 left.right right.left 和left.left right.right 依次入堆  循环弹出
-  - 注意：`left==right\==null`时 contine ！queue.isEmpty()的循环
+  - 注意：`left==right==null`时 contine ！queue.isEmpty()的循环
 
   
 
@@ -339,6 +339,12 @@ int[][] dirs = {{0,1},{0,-1},{-1,0},{1,0}};
         }
     }
 ```
+
+
+
+
+
+
 
 
 
