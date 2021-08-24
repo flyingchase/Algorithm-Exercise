@@ -346,6 +346,46 @@ int[][] dirs = {{0,1},{0,-1},{-1,0},{1,0}};
 
 
 
+## 1 15 16 19 Sum多数求和问题
+
+思路：
+
+ - 排序
+
+ - 遍历 for（int i=0;i<nums.length-2;i++） 再用双指针/三指针
+
+ - 优化：
+
+    - 重复外围数字 直接 continue `if(i>0&&nums[i]==nums[i-1]) continue;` 三指针则再来对 j continue `if(j>i+1&&nums[j]==nums[j-1]) continue;`
+
+    - 最内层 
+
+      ``` java
+      while(l<r) {
+          if(sum==target ){
+              res.add(Arrays.asList(…)); 
+              // 对l 重复情况处理
+              while(l<r&&nums[l]==nums[l+1]) l++;
+              // 对 r 重复情况处理
+              while (l<r&&nums[r]=nums[r-1]) r—;
+              // 相等则两指针均移动 不等移动对于的一个指针
+              l++;r—;
+      }else ...
+      }   
+      ```
+
+      
+
+    - 最接近的 target 问题：
+
+       - ``` java
+         // 初始化
+         res = Integer.MAX_VALUE-target；
+         res = Math.min(Math.abs(sum-target),Math.abs(res-target));
+         ```
+
+       - 
+
 
 
 
