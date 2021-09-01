@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class E_206_reverseListNodeTest {
+class reverseListNodeTest {
 
     @Test
     void reverseList() {
@@ -29,7 +29,7 @@ class E_206_reverseListNodeTest {
         // 环
         // p7.next=p4;
 
-        ListNode node = new E_206_reverseListNode().reverseList(p1);
+        ListNode node = new reverseListNode().reverseList(p1);
         assertEquals(node,p7);
 
     }
