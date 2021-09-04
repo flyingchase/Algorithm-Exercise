@@ -1,7 +1,7 @@
 package DataStructure
 
 type ListNode struct {
-	val int
+	Val  int
 	Next * ListNode
 }
 

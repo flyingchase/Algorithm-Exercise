@@ -29,7 +29,7 @@ func (this *LRUCacheSelf) Get(Key int) int {
 
 func (this *LRUCacheSelf) Remove(node *Node) {
 	if node == this.head {
-		this.head==node.next
+		this.head=node.next
 		if node.next != nil {
 			node.next.prev=nil
 		}
@@ -37,7 +37,7 @@ func (this *LRUCacheSelf) Remove(node *Node) {
 		return
 	}
 	if node == this.tail {
-		this.tail==node.prev
+		this.tail=node.prev
 		node.prev.next=nil
 		node.prev=nil
 		return
