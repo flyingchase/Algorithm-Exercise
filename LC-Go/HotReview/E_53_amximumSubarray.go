@@ -18,7 +18,7 @@ func maxSubArray(nums []int) int {
 			dp[i] = nums[i]
 		}
 
-		res = max(res, dp[i])
+		res = max3LIS(res, dp[i])
 
 	}
 

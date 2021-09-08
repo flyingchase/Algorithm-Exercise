@@ -16,13 +16,13 @@ func lengthofLongestSubstring(s string) int {
 			left++
 		}
 
-		res = max(res, right-left+1)
+		res = max3LIS(res, right-left+1)
 
 	}
 	return res
 }
 
-func max(j int, i int) int {
+func max3LIS(j int, i int) int {
 	if i > j {
 		return i
 	}else {
@@ -72,7 +72,7 @@ func lengthOfLongestSubstring3(s string)int  {
 		}
 		indexes[s[left]]=left
 		left++
-		res=max(res,left-right)
+		res= max3LIS(res,left-right)
 	}
 	return res
 }
