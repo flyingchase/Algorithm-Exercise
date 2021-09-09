@@ -1,4 +1,4 @@
-package HotReview
+package Waitting
 
 type Node struct {
 	key,val int
@@ -13,8 +13,8 @@ type LRUCacheSelf struct {
 }
 
 func ConstructorLRU(capacity int) LRUCacheSelf {
-	return LRUCacheSelf {
-	    keys: make(map[int] * Node),
+	return LRUCacheSelf{
+	    keys: make(map[int] *Node),
 		capacity: capacity,
 	}
 }

@@ -1,4 +1,4 @@
-package HotReview
+package Waitting
 // list底层实现是双向链表
 import "container/list"
 
@@ -44,7 +44,7 @@ func (c *LRUCache) Get(key int)  int{
 
 func (c *LRUCache) Put(key int, value int)  {
     if el,ok:=c.Keys[key];ok {
-        el.Value=pair{K:key,V: value}
+        el.Value= pair{K: key,V: value}
         c.List.MoveToFront(el)
     }else {
         el:=c.List.PushFront(pair{K: key,V : value})
