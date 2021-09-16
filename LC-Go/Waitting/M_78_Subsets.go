@@ -22,6 +22,7 @@ func dfsSubsets(nums []int, cur []int, res *[][]int, index int) {
 	for i := index; i < len(nums); i++ {
 		cur = append(cur, nums[i])
 		dfsSubsets(nums, cur, res, i+1)
+
 		cur = cur[:len(cur)-1]
 	}
 }

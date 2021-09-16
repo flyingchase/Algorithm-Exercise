@@ -3,6 +3,7 @@ package HotReview
 import "LC-Go/DataStructure"
 
 type TreeNode DataStructure.TreeNode
+
 func rightSideView(root *TreeNode) []int {
 	if root == nil {
 		return []int{}
