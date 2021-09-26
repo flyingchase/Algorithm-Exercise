@@ -1,4 +1,4 @@
-package Waitting
+package HotReview
 
 func zigzagLevelOrder(root *TreeNode) [][]int {
 	if root == nil {

@@ -1,4 +1,4 @@
-package Waitting
+package HotReview
 
 func isValidBST(root *TreeNode) bool {
 

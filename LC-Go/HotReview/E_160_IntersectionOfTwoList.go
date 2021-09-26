@@ -1,4 +1,4 @@
-package Waitting
+package HotReview
 
 import "LC-Go/DataStructure"
 

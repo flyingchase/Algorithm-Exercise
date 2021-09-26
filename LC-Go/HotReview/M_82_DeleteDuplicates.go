@@ -1,4 +1,4 @@
-package Waitting
+package HotReview
 
 
 func deleteDuplicates(head *ListNode) *ListNode {
@@ -14,7 +14,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	prev:=dummyHead
 	for newCur!=nil {
 		if m[newCur.Val]>1 {
-			prev,newCur=deleteNode(prev,newCur)
+			prev,newCur= deleteNode(prev,newCur)
 			continue
 		}
 		newCur=newCur.Next

@@ -1,4 +1,4 @@
-package Waitting
+package HotReview
 
 func search(nums []int, target int) int {
 
