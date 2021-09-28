@@ -42,12 +42,3 @@ func judge(left *TreeNode, right *TreeNode) bool {
 
 	return judge(left.Right, right.Left) && judge(left.Left, right.Right)
 }
-
-// func
-
-// fmt.printer
-// ssssm
-
-// fmt.Formatter
-
-// fmt.import

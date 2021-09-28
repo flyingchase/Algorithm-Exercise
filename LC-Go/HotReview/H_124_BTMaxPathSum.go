@@ -1,7 +1,6 @@
 package HotReview
 
 import (
-	"LC-Go/DataStructure"
 	"math"
 )
 
@@ -11,7 +10,7 @@ import (
 */
 
 // recursive
-type TreeNode=DataStructure.TreeNode
+//type TreeNode=DataStructure.TreeNode
 
 func maxPathSum(root *TreeNode) int {
 	if root == nil {

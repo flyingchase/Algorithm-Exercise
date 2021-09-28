@@ -1,9 +1,5 @@
 package HotReview
 
-import "LC-Go/DataStructure"
-
-type ListNode = DataStructure.ListNode
-
 func removerNthFromEndListNode(head *ListNode, n int) *ListNode {
 	dummyHead := &ListNode{Next: head}
 	preSlow, slow, fast := dummyHead, head, head

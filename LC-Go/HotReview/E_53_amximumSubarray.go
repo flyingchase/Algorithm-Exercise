@@ -18,7 +18,7 @@ func maxSubArray(nums []int) int {
 			dp[i] = nums[i]
 		}
 
-		res = max3LIS(res, dp[i])
+		res = max3(res, dp[i])
 
 	}
 
@@ -29,14 +29,14 @@ func maxSubArray1(nums []int) int {
 	if len(nums) == 1 {
 		return nums[0]
 	}
-	maxSum,res,p:=nums[0],0,0
+	maxSum, res, p := nums[0], 0, 0
 	for p < len(nums) {
-		res+=nums[p]
+		res += nums[p]
 		if res > maxSum {
-			maxSum=res
+			maxSum = res
 		}
 		if res < 0 {
-			res=0
+			res = 0
 		}
 		p++
 	}

@@ -1,8 +1,6 @@
 package HotReview
 
-import "LC-Go/DataStructure"
-
-type TreeNode = DataStructure.TreeNode
+//type TreeNode = DataStructure.TreeNode
 func inorderTraversal(root *TreeNode) []int {
 	if root == nil {
 		return nil

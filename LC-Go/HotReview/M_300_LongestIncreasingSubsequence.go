@@ -13,15 +13,15 @@ func lengthOfLIS(nums []int) int {
 	for i := 1; i <= len(nums); i++ {
 		for j := 1; j < i; j++ {
 			if nums[j-1] < nums[i-1] {
-				dp[i] = max(dp[i], dp[j])
+				dp[i] = max300(dp[i], dp[j])
 			}
 		}
 		dp[i] = dp[i] + 1
-		res = max(res, dp[i])
+		res = max300(res, dp[i])
 	}
 	return res
 }
-func max(j int, i int) int {
+func max300(j int, i int) int {
 	if i > j {
 		return i
 	} else {

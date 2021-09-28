@@ -23,30 +23,28 @@ func maxProfit(prices []int) int {
 	return max
 }
 
-
-
 // 单调栈
 func maxProfit1(prices []int) int {
-	if len(prices)==0 {
+	if len(prices) == 0 {
 		return 0
 	}
-	stack,res:=[]int{prices[0]},0
-	for i:=1;i<len(prices); i++{
-		if prices[i]>stack[len(stack)-1] {
-			stack=append(stack,prices[i])
-		}else {
+	stack, res := []int{prices[0]}, 0
+	for i := 1; i < len(prices); i++ {
+		if prices[i] > stack[len(stack)-1] {
+			stack = append(stack, prices[i])
+		} else {
 			// 找到栈中的比当前 i小的最大值
-			index:=len(stack) - 1
-			for ; index>=0;index-- {
-				if stack[index]<prices[i] {
+			index := len(stack) - 1
+			for ; index >= 0; index-- {
+				if stack[index] < prices[i] {
 					break
 				}
 			}
 			// 丢弃所找到的比当前 i 小的最大值更大的部分
-			stack=stack[:index+1]
-			stack=append(stack,prices[i])
+			stack = stack[:index+1]
+			stack = append(stack, prices[i])
 		}
-		res= maxMaxProfix(res,stack[len(stack)-1]-stack[0])
+		res = maxMaxProfix(res, stack[len(stack)-1]-stack[0])
 	}
 	return res
 }
@@ -57,84 +55,3 @@ func maxMaxProfix(j int, i int) int {
 	}
 	return j
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
