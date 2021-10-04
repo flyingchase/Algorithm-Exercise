@@ -85,16 +85,14 @@ func main() {
 
 	fmt.Println("________________________________")
 
-	ctx,cancle=context.WithTimeout(context.Background(),shortDuration)
+	ctx, cancle = context.WithTimeout(context.Background(), shortDuration)
 	defer cancle()
 	select {
-	case <-time.After(1*time.Second):
+	case <-time.After(1 * time.Second):
 		fmt.Println("oversleep")
 	case <-ctx.Done():
 		fmt.Println(ctx.Err())
-
 	}
-
 }
 
-const shortDuration = 1*time.Millisecond
+const shortDuration = 1 * time.Millisecond
