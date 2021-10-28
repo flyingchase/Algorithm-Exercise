@@ -2,7 +2,7 @@ package HotReview
 
 import "LC-Go/DataStructure"
 
-type ListNode = DataStructure.ListNode
+// type ListNode = DataStructure.ListNode
 
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	curA, curB := headA, headB

@@ -12,3 +12,7 @@ func hasPathSum(root *TreeNode, targetSum int) bool {
 
 	return hasPathSum(root.Left, targetSum-root.Val) || hasPathSum(root.Right, targetSum-root.Val)
 }
+
+func heap()  {
+    
+}

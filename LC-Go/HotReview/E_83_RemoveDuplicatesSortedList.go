@@ -1,15 +1,13 @@
 package HotReview
 
-import "LC-Go/DataStructure"
-
 /*
 删除有序链表中的重复数字
 
 */
 
-type ListNode = DataStructure.ListNode
+// type ListNode = DataStructure.ListNode
 
-func deleteDuplicates(head *ListNode) *ListNode {
+func zdeleteDuplicates(head *ListNode) *ListNode {
 	if head == nil {
 		return nil
 	}

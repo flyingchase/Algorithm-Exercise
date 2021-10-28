@@ -7,6 +7,19 @@ import (
 /*
 对称二叉树
 */
+type Pair struct {
+	Value int
+	Count []int
+}
+
+type PairList []Pair
+
+func (p Pair) Len() int {
+	return len(p.Count)
+}
+func (p PairList) Swap(i, j int) {
+	p[i], p[j] = p[j], p[i]
+}
 
 //type TreeNode = DataStructure.TreeNode
 func isSymmetric(root *TreeNode) bool {
