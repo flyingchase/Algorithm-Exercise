@@ -168,20 +168,20 @@ func Test_postTraversalBT(t *testing.T) {
 		})
 	}
 }
-func mergeExercise(nums []int) {
+func mergeExercise(nums []int) []int {
 	if len(nums) == 0 {
-		return
+		return nums
 	}
 	mergeHelper(nums, 0, len(nums)-1)
+	return nums
 }
 func mergeHelper(nums []int, l, r int) {
-	if l > r {
-		return
+	if l < r {
+		mid := l + (r-l)>>1
+		mergeHelper(nums, l, mid)
+		mergeHelper(nums, mid+1, r)
+		mege(nums, l, mid, r)
 	}
-	mid := l + (r-l)>>1
-	mergeHelper(nums, mid+1, r)
-	mergeHelper(nums, l, mid)
-	mege(nums, l, mid, r)
 
 }
 func mege(nums []int, l, mid, r int) {
@@ -196,8 +196,8 @@ func mege(nums []int, l, mid, r int) {
 		}
 		i++
 	}
-	copy(helper[i:], nums[p1:])
-	copy(helper[i:], nums[p2:])
-	copy(nums, helper)
+	copy(helper[i:], nums[p1:mid+1])
+	copy(helper[i:], nums[p2:r+1])
+	copy(nums[l:r+1], helper[:])
 
 }
