@@ -17,7 +17,7 @@ func merge(intervals [][]int) [][]int {
 	}
 
 	resMerge := mergeIntervals(interval)
-	res :=make([][]int,0)
+	res := make([][]int, 0)
 	for _, num := range resMerge {
 		cur := make([]int, 2)
 		cur[0] = num.Start

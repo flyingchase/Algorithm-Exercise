@@ -45,12 +45,12 @@ func quicksortDemo(nums []int) []int {
 
 func quicksortDemoHelper(nums []int, l, r int) {
 	if l < r {
-		p := paratitions(nums, l, r)
+		p := paratitions56(nums, l, r)
 		quicksortDemoHelper(nums, l, p[0]-1)
 		quicksortDemoHelper(nums, p[1]+1, r)
 	}
 }
-func paratitions(nums []int, l, r int) []int {
+func paratitions56(nums []int, l, r int) []int {
 	less, more := l-1, r
 	for l < more {
 		if nums[l] < nums[r] {
