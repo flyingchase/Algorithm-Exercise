@@ -27,9 +27,7 @@ public class E_4_findMedianSortedArrays {
         for (int i = 0; i < nums2.length; i++) {
             addNum(nums2[i]);
         }
-
         return findMedian();
-
     }
 
     private void addNum(int num) {
@@ -46,5 +44,4 @@ public class E_4_findMedianSortedArrays {
         double v = minHeap.size() == maxHeap.size() ? (minHeap.peek() + maxHeap.peek()) / 2.0 : (double) (minHeap.peek());
         return v;
     }
-
 }

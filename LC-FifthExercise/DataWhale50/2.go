@@ -1,23 +1,31 @@
 package datawhale50
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	if l1 == nil {
+		return l2
+	}
+	if l2 == nil {
+		return l1
+	}
 	dummyHead := &ListNode{Val: -1}
-	cur1, cur2 := l1, l2
 	cur := dummyHead
-	others := 0
-	for cur1 != nil && cur2 != nil || others != 0 {
-		if cur1 != nil && cur2 != nil {
-			others += cur1.Val + cur2.Val
+	n1, n2, carry := 0, 0, 0
+	for l1 != nil || l2 != nil || carry != 0 {
+		if l1 != nil {
+			n1 = l1.Val
+			l1 = l1.Next
+		} else {
+			n1 = 0
 		}
-		cur.Next = &ListNode{Val: others % 10}
+		if l2 != nil {
+			n2 = l2.Val
+			l2 = l2.Next
+		} else {
+			n2 = 0
+		}
+		cur.Next = &ListNode{Val: (n1 + n2 + carry) % 10}
 		cur = cur.Next
-		others /= 10
-	}
-	if cur2 != nil {
-		cur.Next = cur2
-	}
-	if cur1 != nil {
-		cur.Next = cur1
+		carry = (n1 + n2 + carry) / 10
 	}
 	return dummyHead.Next
 }
