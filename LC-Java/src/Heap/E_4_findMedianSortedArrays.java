@@ -12,7 +12,6 @@ public class E_4_findMedianSortedArrays {
         System.out.println(new E_4_findMedianSortedArrays().findMedianSortedArrays(nums1, nums2));
 
     }
-
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1 == null && nums2 == null) {
             return Double.parseDouble(null);
