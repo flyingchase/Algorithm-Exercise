@@ -1,11 +1,9 @@
 package Sorts
 
 func heapSort(nums []int) []int {
-
 	if len(nums) == 0 {
 		return nil
 	}
-
 	for i := 0; i < len(nums); i++ {
 		heapInsert(nums, i)
 	}
@@ -16,7 +14,6 @@ func heapSort(nums []int) []int {
 		heapIfy(nums, 0, size)
 	}
 	return nums
-
 }
 
 func heapIfy(nums []int, index int, size int) {
