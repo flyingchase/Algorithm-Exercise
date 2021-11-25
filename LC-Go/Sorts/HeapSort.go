@@ -15,7 +15,6 @@ func heapSort(nums []int) []int {
 	}
 	return nums
 }
-
 func heapIfy(nums []int, index int, size int) {
 	left := index*2 + 1
 	for left < size {
@@ -38,7 +37,7 @@ func heapIfy(nums []int, index int, size int) {
 func heapInsert(nums []int, index int) {
 	for nums[index] > nums[(index-1)/2] {
 		Swap(nums, index, (index-1)/2)
-		index =(index-1) /2
+		index = (index - 1) / 2
 	}
 }
 

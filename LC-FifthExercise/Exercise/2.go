@@ -7,6 +7,7 @@ func addTwoNumbers2(l1, l2 *ListNode) *ListNode {
 		return l2
 	}
 	if l2 == nil {
+
 		return l2
 	}
 	dummyHead := &ListNode{Val: -1}
@@ -109,7 +110,6 @@ func myAtoi(s string) int {
 	if len(s) == 0 {
 		return 0
 	}
-
 	sign := 1
 	res := 0
 	for i := 0; i < len(s); i++ {
@@ -120,6 +120,5 @@ func myAtoi(s string) int {
 			sign = -1
 		}
 	}
-
 	return sign * res
 }

@@ -17,7 +17,6 @@ func quickSort(nums []int, l int, r int) {
 	quickSort(nums,l,p[0]-1)
 	quickSort(nums,p[1]+1,r)
 }
-
 func partition(nums []int, l int, r int) []int {
 	less,more:=l-1,r
 	for l < more {

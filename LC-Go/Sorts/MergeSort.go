@@ -24,6 +24,8 @@ func mergeSort(nums []int, l int, r int) {
 
 func merge(nums *[]int, l int, mid int, r int) {
 
+
+
 	p1, p2 := l, mid+1
 	helper := make([]int, r-l+1)
 	i := 0

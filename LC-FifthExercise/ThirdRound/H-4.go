@@ -57,10 +57,20 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	minHeap := &minHeap{}
 	heap.Init(maxHeap)
 	heap.Init(minHeap)
-	for i := 0; i < len(nums1); i++ {
-		heap.Push(maxHeap, nums1[i])
+
+	nums1 = append(nums1, nums2...)
+	for _, num := range nums1 {
+		if maxHeap.Len() == minHeap.Len() {
+			heap.Push(maxHeap, num)
+			heap.Push(minHeap, heap.Pop(maxHeap))
+		} else {
+			heap.Push(minHeap, num)
+			heap.Push(maxHeap, heap.Pop(minHeap))
+		}
 	}
-	for j := 0; j < len(nums2); j++ {
-		heap.Push(minHeap, nums2[j])
+	if minHeap.Len() == maxHeap.Len() {
+		return float64(heap.Pop(maxHeap).(int)>>1 + heap.Pop(minHeap).(int)>>1)
 	}
+	return float64(heap.Pop(minHeap).(int))
+
 }
