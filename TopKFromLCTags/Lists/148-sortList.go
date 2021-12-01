@@ -1,4 +1,75 @@
 package topkLists
+
+func sortList(head *ListNode) *ListNode {
+	if head == nil || head.Next == nil {
+		return head
+	}
+	slow, fast := head, head
+	// slow, fast := head, head
+	var prev *ListNode
+	for fast != nil && fast.Next != nil {
+		fast = fast.Next.Next
+		prev = slow
+		slow = slow.Next
+	}
+	prev.Next = nil
+	left := sortList(head)
+	right := sortList(left)
+	return mergeLists(left, right)
+}
+func mergeLists(l1, l2 *ListNode) *ListNode {
+	if l1 == nil {
+		return l2
+	}
+	if l2 == nil {
+		return l1
+	}
+	dummyHead := &ListNode{Val: -1}
+	cur := dummyHead
+	for l1 != nil && l2 != nil {
+		if l1.Val < l2.Val {
+			cur.Next = l1
+			l1 = l1.Next
+		} else {
+			cur.Next = l2
+			l2 = l2.Next
+		}
+		cur = cur.Next
+	}
+	if l1 != nil {
+		cur.Next = l1
+	}
+	if l2 != nil {
+		cur.Next = l2
+	}
+	return dummyHead.Next
+}
+func heapsort(nums []int) {
+	if len(nums) == 0 {
+		return
+	}
+	for i := 0; i < len(nums); i++ {
+		heapIndex(nums, i)
+	}
+	size := len(nums)
+	for size > 0 {
+		size--
+		heapIfy(nums, 0, size)
+	}
+}
+func heapIfy(nums []int, index int, size int) {
+
+}
+func heapIndex(nums []int, index int) {
+	parent := (index - 1) >> 1
+	for parent >= 0 && nums[parent] < nums[index] {
+		nums[parent], nums[index] = nums[index], nums[parent]
+		index = parent
+		parent = (index - 1) >> 1
+	}
+
+}
+
 //
 // import "container/heap"
 //
@@ -42,13 +113,12 @@ package topkLists
 // 	return dummyHead.Next
 // }
 
-
-func sortList(head *ListNode) *ListNode {
+func sortList3(head *ListNode) *ListNode {
 	if head == nil || head.Next == nil {
 		return head
 	}
 	slow, fast := head, head
-	prev:=head
+	prev := head
 	for fast != nil && fast.Next != nil {
 		prev = slow
 		slow = slow.Next
@@ -57,7 +127,7 @@ func sortList(head *ListNode) *ListNode {
 	// 利用快慢指针找到中点
 	// slow即为中点，断开 slow 的前结点链接
 	prev.Next = nil
-	return  merge(sortList(head),sortList(slow))
+	return merge(sortList3(head), sortList3(slow))
 }
 func merge(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil {
@@ -66,7 +136,7 @@ func merge(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l2 == nil {
 		return l1
 	}
-	dummyHead:=new(ListNode)
+	dummyHead := new(ListNode)
 	cur := dummyHead
 	for l1 != nil && l2 != nil {
 		if l1.Val < l1.Val {
