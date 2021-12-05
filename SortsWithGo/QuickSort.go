@@ -1,5 +1,7 @@
 package sortswithgo
 
+import "math/rand"
+
 // 快速排序 基于分治的思想
 /*
 * 1. 确定分界点, 随机
@@ -13,13 +15,16 @@ func QuickSort(nums []int) {
 	quickSortHelper(nums, 0, len(nums)-1)
 }
 func quickSortHelper(nums []int, l, r int) {
-	if l < r {
-		// 交换 left  right 默认选择 nums[right] 作为 pivot
-		nums[l], nums[r] = nums[r], nums[l]
-		p := paratition(nums, l, r)
-		quickSortHelper(nums, l, p[0]-1)
-		quickSortHelper(nums, p[1]+1, r)
+	if l >= r {
+		return
 	}
+	// 交换 left  right 默认选择 nums[right] 作为 pivot
+	// l += int(rand.Float64() * float64(r-l+1))
+	l = l + rand.Intn(r-l+1)
+	nums[l], nums[r] = nums[r], nums[l]
+	p := paratition(nums, l, r)
+	quickSortHelper(nums, l, p[0]-1)
+	quickSortHelper(nums, p[1]+1, r)
 }
 
 // 分割 less, more 代表上下界，less 和 more 之间为与 Privot相等的值
@@ -27,7 +32,6 @@ func quickSortHelper(nums []int, l, r int) {
 func paratition(nums []int, l, r int) []int {
 	less, more := l-1, r
 	for l < more {
-
 		if nums[l] < nums[r] {
 			less++
 			nums[less], nums[l] = nums[l], nums[less]
