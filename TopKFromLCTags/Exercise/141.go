@@ -23,3 +23,8 @@ func hasCycle2(head *ListNode) bool {
 	}
 	return false
 }
+func heapsortdemo(nums []int) {
+	if len(nums) == 0 {
+		return
+	}
+}
