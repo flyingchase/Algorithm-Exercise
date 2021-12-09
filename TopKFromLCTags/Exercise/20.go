@@ -28,7 +28,3 @@ func isOkforrune(s string) bool {
 	}
 	return len(stack) == 0
 }
-
-func ()  {
-	
-}
