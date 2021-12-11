@@ -8,4 +8,5 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l2 == nil {
 		return l1
 	}
+	return nil
 }
