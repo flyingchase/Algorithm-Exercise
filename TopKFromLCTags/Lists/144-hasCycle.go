@@ -18,6 +18,7 @@ func hasCycle(head *ListNode) bool {
 }
 
 // set implmented by struct{}
+// 空结构体占位
 func hasCycle2(head *ListNode) bool {
 	dict := make(map[*ListNode]struct{})
 	cur := head
