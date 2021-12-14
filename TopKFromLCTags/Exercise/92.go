@@ -12,7 +12,7 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	for i := left; i < right; i++ {
 		cur.Next = next.Next
 		next.Next = prev.Next
-		prev.Next = next
+		prev.Next = cur
 		next = cur.Next
 	}
 	return dummyHead.Next
