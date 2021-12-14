@@ -4,6 +4,7 @@ package exercise
 func longestCommonSubsequence(text1 string, text2 string) int {
 	size1, size2 := len(text1), len(text2)
 	if size1*size2 == 0 {
+
 		return 0
 	}
 	lcs := make([][]int, size1+1)
