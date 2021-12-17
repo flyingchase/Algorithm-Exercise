@@ -2,16 +2,6 @@ package topkLists
 
 // K 个一组翻转链表
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	// 	dummyHead := &ListNode{Val: -1, Next: head}
-	// 	cur := head
-	// 	count := 0
-	// 	for cur != nil {
-	// 		count++
-	// 		cur = cur.Next
-	//
-	// 	}
-	// 	return dummyHead.Next
-
 	if k == 1 {
 		return head
 	}
