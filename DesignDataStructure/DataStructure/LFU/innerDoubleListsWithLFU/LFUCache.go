@@ -51,3 +51,35 @@ func (this *LFUCache) Get(key int) int {
 	}
 	return curNode.value
 }
+
+func (this *LFUCache) Put(key int, value int) {
+	if this.capacity == 0 {
+		return
+	}
+	// 结点存在则更新访问次数，移动结点
+	if curValue, ok := this.nodes[key]; ok {
+		curNode := curValue.Value.(*node)
+		curNode.value = value
+		this.Get(key)
+		return
+	}
+	// 不存在结点且缓存满，删除再添加
+	if this.capacity == len(this.nodes) {
+		curList := this.lists[this.min]
+		backNode := curList.Back()
+		delete(this.nodes, backNode.Value.(*node).key)
+		curList.Remove(backNode)
+	}
+	this.min = 1
+	curNode := &node{
+		key:       key,
+		value:     value,
+		frequency: 1,
+	}
+	if _, ok := this.lists[1]; ok {
+		this.lists[1] = list.New()
+	}
+	newList := this.lists[1]
+	newNode := newList.PushFront(curNode)
+	this.nodes[key] = newNode
+}
