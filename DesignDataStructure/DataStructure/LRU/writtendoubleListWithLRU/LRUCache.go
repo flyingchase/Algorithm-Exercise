@@ -41,6 +41,7 @@ func (this *LRUCache) Put(key int, value int) {
 }
 
 func (this *LRUCache) Add(node *Node) {
+	// 头插法
 	node.prev = nil
 	node.next = this.head
 	if this.head != nil {
@@ -52,8 +53,10 @@ func (this *LRUCache) Add(node *Node) {
 		this.tail.next = nil
 	}
 }
-func (this *LRUCache) Remove(node *Node) { 
-	if node == this.head { this.head = node.next if node.next != nil {
+func (this *LRUCache) Remove(node *Node) {
+	if node == this.head {
+		this.head = node.next
+		if node.next != nil {
 			node.next.prev = nil
 		}
 		node.next = nil
