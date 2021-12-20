@@ -65,7 +65,5 @@ func paration(nums []int, l, r int) []int {
 		}
 	}
 	nums[more], nums[r] = nums[r], nums[more]
-
 	return []int{less + 1, more}
-
 }
