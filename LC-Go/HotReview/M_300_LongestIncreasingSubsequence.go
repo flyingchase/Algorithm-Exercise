@@ -27,7 +27,6 @@ func max300(j int, i int) int {
 	} else {
 		return j
 	}
-
 }
 
 func lengthOfLIS1(nums []int) int {
