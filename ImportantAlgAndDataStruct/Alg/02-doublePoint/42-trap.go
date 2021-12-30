@@ -1,5 +1,6 @@
 package doublepoint
 
+// 42-接雨水
 func trap(height []int) int {
 	if len(height) <= 1 {
 		return 0

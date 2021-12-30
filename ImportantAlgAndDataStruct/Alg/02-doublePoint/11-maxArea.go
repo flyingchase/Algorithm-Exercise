@@ -1,5 +1,6 @@
 package doublepoint
 
+// 11 数组矩形的最大面积
 func maxArea(height []int) int {
 	if len(height) <= 1 {
 		return 0
