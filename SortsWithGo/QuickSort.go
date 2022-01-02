@@ -27,7 +27,7 @@ func quickSortHelper(nums []int, l, r int) {
 	quickSortHelper(nums, p[1]+1, r)
 }
 
-// 分割 less, more 代表上下界，less 和 more 之间为与 Privot相等的值
+// 分割 less, more 代表上下界，less 和 more 之间为与 Pivot相等的值
 // 返回 上下界的下标
 func paratition(nums []int, l, r int) []int {
 	less, more := l-1, r

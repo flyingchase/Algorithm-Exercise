@@ -46,7 +46,12 @@ func validCandy(raitings []int, sum int) bool {
 	temp = append(temp, raitings...)
 	sort.Ints(temp)
 	count := len(raitings)
-	for i := 1; i < len(temp)-1; i++ {
+	i := 1
+	if i > 0 && raitings[i] > raitings[i-1] {
+		count++
+		i++
+	}
+	for ; i < len(temp)-1; i++ {
 		if raitings[i] > raitings[i+1] && raitings[i] > raitings[i-1] {
 			count++
 			continue
@@ -55,7 +60,14 @@ func validCandy(raitings []int, sum int) bool {
 			count++
 		}
 	}
-
+	if i < len(raitings) && raitings[i] > raitings[i-1] {
+		count++
+	}
+	// for i := len(raitings) - 1; i > 0; i-- {
+	// 	if raitings[i] > raitings[i-1] {
+	// 		count++
+	// 	}
+	// }
 	if count > sum {
 		return false
 	}
