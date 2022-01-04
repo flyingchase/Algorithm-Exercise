@@ -22,7 +22,7 @@ func reverseBetween(root *ListNode, left, right int) *ListNode {
 	for i := left; i < right; i++ {
 		cur.Next = next.Next
 		next.Next = prev.Next
-		prev.Next = cur
+		prev.Next = next
 		next = cur.Next
 	}
 	return dummyHead.Next
