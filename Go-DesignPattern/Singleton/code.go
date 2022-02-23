@@ -22,7 +22,7 @@ func (s *singleton) AddOne() int {
 	return s.count
 }
 
-var lock = &sync.Mutex{}
+// var lock = &sync.Mutex{}
 
 type single struct {
 }
