@@ -1,16 +1,6 @@
-package main
+package intership
 
-import (
-	"fmt"
-)
-
-func main() {
-	nums := []int{1, 0, 9, 2, 3, 8, 7, 4, 6, 5}
-	fmt.Println("before sort the array is ", nums)
-	heapsort(nums)
-	fmt.Println("after sort the array is ", nums)
-}
-func quicksort(nums []int) []int {
+func Quicksort(nums []int) []int {
 	if len(nums) <= 1 {
 		return nums
 	}
@@ -42,7 +32,7 @@ func paratition(nums []int, l, r int) []int {
 	nums[more], nums[r] = nums[r], nums[more]
 	return []int{less + 1, more}
 }
-func mergesort(nums []int) {
+func Mergesort(nums []int) {
 
 	if len(nums) <= 1 {
 		return
@@ -80,7 +70,7 @@ func merge(nums []int, l, mid, r int) {
 	copy(nums[l:r+1], helper)
 }
 
-func heapsort(nums []int) {
+func Heapsort(nums []int) {
 	if len(nums) <= 1 {
 		return
 	}
