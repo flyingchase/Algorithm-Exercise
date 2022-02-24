@@ -25,7 +25,6 @@ func heapIfy(nums []int, index int, size int) {
 			largest = left
 		}
 		if nums[largest] < nums[index] {
-			largest = index
 			break
 		}
 		Swap(nums, index, largest)

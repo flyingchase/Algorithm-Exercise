@@ -2,14 +2,12 @@ package Sorts
 
 func NewmergeSort(nums []int) {
 	mergeSortNew(nums, 0, len(nums)-1)
-
 }
 
 func mergeSortNew(nums []int, l int, r int) {
 	if l >= r {
 		return
 	}
-
 	mid := l + ((r - l) >> 1)
 	mergeSortNew(nums, l, mid)
 	mergeSortNew(nums, mid+1, r)

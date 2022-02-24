@@ -9,8 +9,8 @@ func NewHeapSort(nums []int) []int {
 	//	sort
 	for length > 0 {
 		length--
+		newHeapIfy(nums, length, 0)
 		nums[length], nums[0] = nums[0], nums[length]
-		heapIfy(nums, length, 0)
 	}
 	return nums
 }
@@ -23,7 +23,7 @@ func NewHeapInsert(nums []int, index int) {
 
 }
 
-func newHepIfy(nums []int, size int, index int) {
+func newHeapIfy(nums []int, size int, index int) {
 	for {
 		max := index
 		if 2*index+1 < size && nums[2*index+1] > nums[max] {
