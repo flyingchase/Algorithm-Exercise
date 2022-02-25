@@ -3,6 +3,7 @@ package intership
 import (
 	"math"
 	"sort"
+	"sync"
 )
 
 // lc 修改字符出现最多的次数的 num
@@ -10,6 +11,7 @@ func maxFrequency1838(nums []int, k int) int {
 	if len(nums) == 0 {
 		return 0
 	}
+	var lock sync.Mutex
 	countMap, res := make(map[int]int, 0), 1
 	sort.Slice(nums, func(i, j int) bool {
 		return nums[i] >= nums[j]
