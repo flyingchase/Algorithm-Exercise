@@ -90,3 +90,41 @@ func ZigzalTraversalaBT(root *TreeNode) [][]int {
 	}
 	return res
 }
+
+// 前中后遍历构建二叉树
+func ConstructBTFromPreInorderTraversal(preorder []int, inorder []int) *TreeNode {
+	if len(preorder) == 0 {
+		return nil
+	}
+	num := preorder[0]
+	index := findIndexInTraversalRes(inorder, num)
+	return &TreeNode{
+		Val:   num,
+		Left:  ConstructBTFromPreInorderTraversal(preorder[1:index+1], inorder[:index]),
+		Right: ConstructBTFromPreInorderTraversal(preorder[index+1:], inorder[index+1:]),
+	}
+}
+func findIndexInTraversalRes(nums []int, num int) int {
+	var res int
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == num {
+			res = num
+			break
+		}
+	}
+	return res
+}
+
+func ConstructBTFromPostInorderTraversal(postorder []int, inorder []int) *TreeNode {
+	if len(postorder) == 0 {
+		return nil
+	}
+	num := postorder[len(postorder)-1]
+	index := findIndexInTraversalRes(inorder, num)
+	return &TreeNode{
+		Val:   num,
+		Left:  ConstructBTFromPostInorderTraversal(postorder[:index], inorder[:index]),
+		Right: ConstructBTFromPostInorderTraversal(postorder[index:len(postorder)-1], inorder[index+1:]),
+	}
+
+}
