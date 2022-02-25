@@ -5,6 +5,7 @@ import (
 	"sort"
 )
 
+// lc 修改字符出现最多的次数的 num
 func maxFrequency1838(nums []int, k int) int {
 	if len(nums) == 0 {
 		return 0
