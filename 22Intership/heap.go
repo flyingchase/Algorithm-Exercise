@@ -25,6 +25,8 @@ func (h *heapLists) Pop() interface{} {
 func (h *heapLists) Push(x interface{}) {
 	*h = append(*h, x.(*ListNode))
 }
+
+// 合并 k 个有序链表
 func mergeKSortedLists(lists []*ListNode) *ListNode {
 	if len(lists) == 0 {
 		return nil
