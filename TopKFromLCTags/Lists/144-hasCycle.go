@@ -31,10 +31,35 @@ func hasCycle2(head *ListNode) bool {
 	}
 	return false
 }
-func quicksort(nums []int) {
+func Quicksort(nums []int) {
 	if len(nums) == 0 {
 		return
 	}
-	for i := 0; i < len(nums); i++ {
+	quicksortHelper(nums, 0, len(nums)-1)
+}
+func quicksortHelper(nums []int, l, r int) {
+	if l >= r {
+		return
 	}
+	p := partition(nums, l, r)
+	quicksortHelper(nums, l, p[0]-1)
+	quicksortHelper(nums, p[1]+1, r)
+
+}
+func partition(nums []int, l, r int) []int {
+	less, more := l-1, r
+	for l < more {
+		if nums[l] < nums[r] {
+			less++
+			nums[l], nums[less] = nums[less], nums[l]
+			l++
+		} else if nums[l] > nums[r] {
+			more--
+			nums[l], nums[more] = nums[more], nums[l]
+		} else {
+			l++
+		}
+	}
+	nums[r], nums[more] = nums[more], nums[r]
+	return []int{less + 1, more}
 }

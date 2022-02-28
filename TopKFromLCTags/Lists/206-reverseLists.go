@@ -1,8 +1,6 @@
 package topkLists
 
-import (
-	"topkTags"
-)
+import topkTags "topk"
 
 type ListNode = topkTags.ListNode
 
