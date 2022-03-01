@@ -126,5 +126,4 @@ func ConstructBTFromPostInorderTraversal(postorder []int, inorder []int) *TreeNo
 		Left:  ConstructBTFromPostInorderTraversal(postorder[:index], inorder[:index]),
 		Right: ConstructBTFromPostInorderTraversal(postorder[index:len(postorder)-1], inorder[index+1:]),
 	}
-
 }

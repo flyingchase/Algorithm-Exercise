@@ -31,7 +31,6 @@ func maxFrequency1838(nums []int, k int) int {
 					break
 				}
 			}
-
 		}
 		if res <= count {
 			res = count

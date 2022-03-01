@@ -7,7 +7,7 @@ func lis(nums []int) int {
 		return 0
 	}
 	dp := make([]int, len(nums))
-	for index, _ := range dp {
+	for index := range dp {
 		dp[index] = 1
 	}
 	res := 1
@@ -20,5 +20,4 @@ func lis(nums []int) int {
 		}
 	}
 	return res
-
 }

@@ -48,5 +48,4 @@ func mergeIntervials(intervials [][]int) [][]int {
 		res = append(res, temp)
 	}
 	return res
-
 }

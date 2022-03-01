@@ -12,7 +12,6 @@ func lca(root, p, q *TreeNode) *TreeNode {
 	}
 	left := lca(root.Left, p, q)
 	right := lca(root.Right, p, q)
-
 	if left != nil {
 		if right != nil {
 			return root

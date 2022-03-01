@@ -63,7 +63,6 @@ func checkInclusion(s1, s2 string) bool {
 		return false
 	}
 	map1, map2 := make([]int, 26), make([]int, 26)
-
 	// 首个窗口入 map2，同时记录 s1中的字符频次
 	for i := 0; i < len1; i++ {
 		map1[s1[i]-'a']++
@@ -104,7 +103,6 @@ func MinWindow_76(s, t string) string {
 				match++
 			}
 		}
-
 		// 所有字符均在 s[l:r+1]内被匹配
 		for match == len(dict) {
 			// 更新有效子串的长度，同时记录起始位置
@@ -112,7 +110,6 @@ func MinWindow_76(s, t string) string {
 				length = r - l + 1
 				start = l
 			}
-
 			// shrink left window boarder
 			if count, boolValue := dict[s[l]]; boolValue {
 				// 更新已经匹配的字符
@@ -125,7 +122,6 @@ func MinWindow_76(s, t string) string {
 		}
 		r++
 	}
-
 	if length == math.MaxInt32 {
 		return ""
 	}

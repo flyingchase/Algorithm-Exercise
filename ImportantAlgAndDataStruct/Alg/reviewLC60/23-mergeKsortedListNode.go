@@ -16,11 +16,9 @@ func mergeHelper(lists []*ListNode, l, r int) *ListNode {
 	if l > r {
 		return nil
 	}
-
 	mid := l + (r-l)>>1
 	left := mergeHelper(lists[:mid], l, mid)
 	right := mergeHelper(lists[mid:], mid+1, r)
-
 	return merge(left, right)
 }
 func merge(l, r *ListNode) *ListNode {
