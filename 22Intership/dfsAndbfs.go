@@ -5,6 +5,7 @@ import (
 	"sort"
 )
 
+// ========================================================================
 // 路径和，二叉树上找到从根节点触发的路径和等于 target
 func hasPathSum(root *TreeNode, sum int) bool {
 	if root == nil {
@@ -20,6 +21,7 @@ func hasPathSum(root *TreeNode, sum int) bool {
 	return left || right
 }
 
+// ========================================================================
 // 二叉树的最大路径和，可能不经过 root
 func maxPathSum(root *TreeNode) int {
 	if root == nil {
@@ -40,6 +42,7 @@ func dfsMaxPathSum(res *int, node *TreeNode) int {
 	return Max(0, node.Val+Max(left, right))
 }
 
+// ========================================================================
 // 翻转二叉树,镜面翻转
 func invertTree(root *TreeNode) *TreeNode {
 	if root == nil {
@@ -56,6 +59,7 @@ func invertTree(root *TreeNode) *TreeNode {
 	return root
 }
 
+// ========================================================================
 // 二叉树拆分为链表
 // 递归 dfs 或者stack 前序遍历时node.left=nil node.right=stack.peek
 func flatten(root *TreeNode) {
@@ -84,7 +88,7 @@ func flatten(root *TreeNode) {
 	}
 }
 
-//
+// ========================================================================
 // M-200 岛屿数量
 func numIslands(grid [][]byte) int {
 	if len(grid) == 0 {
@@ -138,6 +142,7 @@ func dfsNumIslands(grid [][]byte, row, col int) {
 	dfsNumIslands(grid, row, col-1)
 }
 
+// ========================================================================
 // M-90-子集
 func subsetsWithDup(nums []int) [][]int {
 	if len(nums) == 0 {
@@ -164,6 +169,7 @@ func batcktrackSubsSet(nums []int, res *[][]int, temp []int, index int) {
 	}
 }
 
+// ========================================================================
 // 非重复的全排列
 func permuteUnique(nums []int) [][]int {
 	if len(nums) == 0 {

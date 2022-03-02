@@ -18,6 +18,7 @@ func isMonotonic(A []int) bool {
 	return inc || dec
 }
 
+// ========================================================================
 // 11 数组矩形的最大面积
 func maxArea(height []int) int {
 	if len(height) <= 1 {
@@ -38,6 +39,7 @@ func maxArea(height []int) int {
 	return res
 }
 
+// ========================================================================
 // 接雨水
 func trap(height []int) int {
 	if len(height) <= 1 {
@@ -67,6 +69,7 @@ func trap(height []int) int {
 	return res
 }
 
+// ========================================================================
 // 移动零 将数组中 0移到最后面，非零保持原相对顺序
 func moveZero(nums []int) {
 	if len(nums) <= 1 {
@@ -85,6 +88,7 @@ func moveZero(nums []int) {
 	}
 }
 
+// ========================================================================
 // 四数之和-注意非重复的去重,转化为两数之和
 func forSum(nums []int, targetSum int) [][]int {
 	if len(nums) < 4 {
@@ -126,8 +130,8 @@ func forSum(nums []int, targetSum int) [][]int {
 	return res
 }
 
-// 最小糖果奖励
-// 每个学生至少一个，且高分比相邻低分奖励多
+// ========================================================================
+// 最小糖果奖励 每个学生至少一个，且高分比相邻低分奖励多
 // 规律：相邻的学生a<b 则糖果B=A+1或B=1
 func candy(ratings []int) int {
 	left, right := make([]int, len(ratings)), make([]int, len(ratings))
@@ -155,10 +159,9 @@ func candy(ratings []int) int {
 	return sum
 }
 
-// 对角线遍历矩阵
-// 避免使用大量指针出现越界操作
-// 分解操作再合并
-// 第一行斜向左下遍历，最后一列斜向左下遍历
+// ========================================================================
+// 对角线遍历矩阵避免使用大量指针出现越界操作
+// 分解操作再合并 第一行斜向左下遍历，最后一列斜向左下遍历
 // 偶数位翻转后将所有合并到 res
 func FindDiagonalOrder(mat [][]int) []int {
 	if len(mat) == 0 || len(mat[0]) == 0 {

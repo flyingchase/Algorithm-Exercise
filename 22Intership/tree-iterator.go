@@ -1,5 +1,6 @@
 package intership
 
+// ========================================================================
 func PreOrderTrvaersalBT(root *TreeNode) []int {
 	if root == nil {
 		return nil
@@ -36,6 +37,7 @@ func InorderTraversalBT(root *TreeNode) []int {
 	}
 	return res
 }
+
 func PostorderTraversalBT(root *TreeNode) []int {
 	if root == nil {
 		return nil
@@ -57,6 +59,7 @@ func PostorderTraversalBT(root *TreeNode) []int {
 	return res
 }
 
+// ========================================================================
 func ZigzalTraversalaBT(root *TreeNode) [][]int {
 	if root == nil {
 		return nil
@@ -91,6 +94,7 @@ func ZigzalTraversalaBT(root *TreeNode) [][]int {
 	return res
 }
 
+// ========================================================================
 // 前中后遍历构建二叉树
 func ConstructBTFromPreInorderTraversal(preorder []int, inorder []int) *TreeNode {
 	if len(preorder) == 0 {

@@ -2,6 +2,7 @@ package intership
 
 import "math"
 
+// ========================================================================
 // 最长回文子串的长度
 func countSubstringsPalindrome(s string) int {
 	if len(s) == 0 {
@@ -29,6 +30,7 @@ func countSubstringsPalindrome(s string) int {
 	return res
 }
 
+// ========================================================================
 // 最大子数组之和
 func maxSubArraySum(nums []int) int {
 	if len(nums) == 0 {

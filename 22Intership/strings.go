@@ -5,6 +5,7 @@ import (
 	"reflect"
 )
 
+// ========================================================================
 // 最小子数组之和>target的长度
 func minSubArrayLen(nums []int, target int) int {
 	res := math.MaxInt32
@@ -31,6 +32,7 @@ func minSubArrayLen(nums []int, target int) int {
 	return res
 }
 
+// ========================================================================
 // 至多有 k 个不同字符的最长子串
 func LengthOfLongestSubstringKDistinct(s string, k int) int {
 	dict := make(map[byte]int, 0)
@@ -55,6 +57,7 @@ func LengthOfLongestSubstringKDistinct(s string, k int) int {
 	return res
 }
 
+// ========================================================================
 // 判断给定字符串 s 是否含有 p 的排列
 // 定长滑动窗口，两个 map 分别记录 p 中字符次数和窗口中字符频次
 func checkInclusion(s1, s2 string) bool {
@@ -82,6 +85,7 @@ func checkInclusion(s1, s2 string) bool {
 	return reflect.DeepEqual(map1, map2)
 }
 
+// ========================================================================
 // 最小子串覆盖
 // s 中包含 t 中每个字符的子串的最小子串
 func MinWindow_76(s, t string) string {
