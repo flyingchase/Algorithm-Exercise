@@ -55,7 +55,7 @@ func binary(nums []int, m, high, low int) int {
 // 可分割 m 份且每份和不超过subArraySum
 func valid(nums []int, m, subArraySum int) bool {
 	// count代表分割的分数，一旦 curSum 超过限定的subArraySum，则 count++
-	// curSum缩回越界的 num 开始累加和
+	// curSum缩回越界的 num 开始累加
 	curSum, count := 0, 1
 	for _, num := range nums {
 		curSum += num

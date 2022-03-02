@@ -1,7 +1,90 @@
 package intership
 
-import "sort"
+import (
+	"math"
+	"sort"
+)
 
+// 路径和，二叉树上找到从根节点触发的路径和等于 target
+func hasPathSum(root *TreeNode, sum int) bool {
+	if root == nil {
+		return false
+	}
+	// 遇到叶子结点查看是否符合 target
+	if root.Left == nil && root.Right == nil {
+		return root.Val == sum
+	}
+	// 递归左右子树并改变 target
+	left := hasPathSum(root.Left, sum-root.Val)
+	right := hasPathSum(root.Right, sum-root.Val)
+	return left || right
+}
+
+// 二叉树的最大路径和，可能不经过 root
+func maxPathSum(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	res := math.MinInt32
+	dfsMaxPathSum(&res, root)
+	return res
+}
+func dfsMaxPathSum(res *int, node *TreeNode) int {
+	if node == nil {
+		return 0
+	}
+	left, right := dfsMaxPathSum(res, node.Left), dfsMaxPathSum(res, node.Right)
+	// 经过当前结点的最大路径和全局最大路径比较
+	*res = Max(*res, node.Val+left+right)
+	// 返回经过当前路径的最大,左右两侧
+	return Max(0, node.Val+Max(left, right))
+}
+
+// 翻转二叉树,镜面翻转
+func invertTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return root
+	}
+	// 交换左右子树
+	right := root.Right
+	root.Right = root.Left
+	root.Left = right
+
+	// 递归每个子树下的分支
+	invertTree(root.Left)
+	invertTree(root.Right)
+	return root
+}
+
+// 二叉树拆分为链表
+// 递归 dfs 或者stack 前序遍历时node.left=nil node.right=stack.peek
+func flatten(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	stack := make([]*TreeNode, 0)
+	stack = append(stack, root)
+	for len(stack) != 0 {
+		node := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if node.Right != nil {
+			stack = append(stack, node.Right)
+		}
+		if node.Left != nil {
+			stack = append(stack, node.Left)
+		}
+
+		node.Left = nil
+		if len(stack) == 0 {
+			node.Right = nil
+		} else {
+			node.Right = stack[len(stack)-1]
+		}
+
+	}
+}
+
+//
 // M-200 岛屿数量
 func numIslands(grid [][]byte) int {
 	if len(grid) == 0 {
@@ -135,7 +218,9 @@ func nextpermutation(nums []int) {
 	j := i + 1
 	for ; j < len(nums) && nums[j] > nums[i]; j++ {
 	}
+	// 多加了一次
 	j--
+	// 将第一个降序的 number 和第一个比降序 number 稍大的数交换
 	nums[i], nums[j] = nums[j], nums[i]
 	i++
 	// 将 i 之后部分逆序

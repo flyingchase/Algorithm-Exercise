@@ -51,3 +51,14 @@ func mergeKSortedLists(lists []*ListNode) *ListNode {
 	}
 	return dummyHead.Next
 }
+
+//  最少的不同元素
+// nums 删除 k 个元素后剩下不同的元素最少
+
+// 重排字符串，使相同字符不相邻
+
+// 有序矩阵中的第 k 小元素
+
+// 最小范围，包含每个数组的至少一个数
+
+// 查找和最小的 k 对数字
