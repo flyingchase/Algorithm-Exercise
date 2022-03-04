@@ -131,3 +131,15 @@ func MinWindow_76(s, t string) string {
 	}
 	return s[start : start+length]
 }
+
+func isSubString(a string, b string) bool {
+	if len(a) == 0 {
+		return true
+	}
+	if len(b) == 0 {
+		return false
+	}
+	window := make()
+
+	return false
+}
