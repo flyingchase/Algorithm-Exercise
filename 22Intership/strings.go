@@ -139,7 +139,6 @@ func isSubString(a string, b string) bool {
 	if len(b) == 0 {
 		return false
 	}
-	window := make()
 
 	return false
 }

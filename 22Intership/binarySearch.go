@@ -1,5 +1,4 @@
 package intership
-
 import "sort"
 
 // ========================================================================
@@ -36,6 +35,7 @@ func splitArray(nums []int, m int) int {
 	}
 	return binary(nums, m, sum, max)
 }
+
 
 // 二分猜答案
 func binary(nums []int, m, high, low int) int {

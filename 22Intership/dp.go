@@ -30,6 +30,15 @@ func countSubstringsPalindrome(s string) int {
 	return res
 }
 
+func ts(s string) int {
+	if len(s)==0 {
+		return  0
+	}
+	for i := 0; i < len(s); i++ {
+	}
+	return  0
+}
+
 // ========================================================================
 // 最大子数组之和
 func maxSubArraySum(nums []int) int {

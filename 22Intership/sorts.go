@@ -70,7 +70,6 @@ func merge(nums []int, l, mid, r int) {
 	// 注意选择 l:r+1范围内
 	copy(nums[l:r+1], helper)
 }
-
 func Heapsort(nums []int) {
 	if len(nums) <= 1 {
 		return
