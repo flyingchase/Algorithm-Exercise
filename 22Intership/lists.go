@@ -55,4 +55,5 @@ func detechCycle(head *ListNode) (*ListNode, bool) {
 }
 
 // 链表循环右移 k 位
+
 // 链接为循环链表，找倒数 k 位断开即可，注意 prev 和 head 的更新

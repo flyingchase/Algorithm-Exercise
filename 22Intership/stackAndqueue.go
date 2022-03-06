@@ -11,14 +11,40 @@ func (queue *MyQueue) push(x int) {
 	queue.in = append(queue.in, x)
 }
 func (queue *MyQueue) pop() int {
-	return 0
+	// 确保有元素
+	queue.peek()
+	return queue.out[len(queue.out)-1]
 }
-func (queue *MyQueue) peek() bool {
-	return false
+func (queue *MyQueue) peek() int {
+	if len(queue.out) == 0 {
+		for len(queue.in) != 0 {
+			queue.out = append(queue.out, queue.in[len(queue.in)-1])
+			queue.in = queue.in[:len(queue.in)-1]
+		}
+	}
+	return queue.out[len(queue.out)-1]
+}
+func (queue *MyQueue) isEmpty() bool {
+	return len(queue.in) == 0 && len(queue.out) == 0
 }
 
 // ========================================================================
 // 队列实现栈
+type MyStack struct {
+	queue []int
+}
+
+func (stack *MyStack) pop() int {
+	node := stack.queue[0]
+	stack.queue = stack.queue[1:]
+	return node
+}
+func (stack *MyStack) push(x int) {
+	tmp := append([]int{}, stack.queue...)
+	stack.queue = []int{}
+	stack.queue = append(stack.queue, x)
+	stack.queue = append(stack.queue, tmp...)
+}
 
 // ========================================================================
 // 有效括号序列
@@ -47,9 +73,31 @@ func (m *MinStack) Pop() int {
 			m.data = m.data[:len(m.data)]
 			return x
 		}
-		x := m.data[len(m.data)]
-		m.data = m.data[:len(m.data)]
+		x := m.mini[len(m.mini)-1]
+		m.mini = m.mini[:len(m.mini)-1]
 		return x
 	}
 	return -1
+}
+
+// 滑动窗口平均值
+func MovingAverage(nums []int, size int) []float64 {
+	if len(nums) < size {
+		return nil
+	}
+	queue := make([]int, 0)
+	sum := 0
+	res := []float64{}
+	for i := 0; i < len(nums); i++ {
+		queue = append(queue, nums[i])
+		sum += nums[i]
+		if len(queue) > size {
+			sum -= queue[0]
+			queue = queue[1:]
+		}
+		if len(queue) == size {
+			res = append(res, float64(sum)/float64(size))
+		}
+	}
+	return res
 }

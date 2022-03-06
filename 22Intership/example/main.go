@@ -2,6 +2,7 @@ package main
 
 import (
 	intership "22intership"
+	"fmt"
 )
 
 type TreeNode = intership.TreeNode
@@ -50,6 +51,8 @@ func main() {
 	// 	fmt.Println(res)
 	// }
 
+	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	fmt.Println(intership.MovingAverage(nums, 3))
 }
 func changeDNA(a, b string) int {
 	match := 0
