@@ -364,3 +364,7 @@ func canPartition(nums []int) bool {
 
 	return false
 }
+
+func NumIslands2(grid [][]int) int {
+
+}
