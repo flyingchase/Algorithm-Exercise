@@ -2,6 +2,7 @@ package main
 
 import (
 	intership "22intership"
+	codetop "22intership/codeTop"
 	"fmt"
 )
 
@@ -53,7 +54,12 @@ func main() {
 
 	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	fmt.Println(intership.MovingAverage(nums, 3))
+
+	substring3 := codetop.LengthOfLongestSubstring3("pwwkew")
+	fmt.Println(substring3)
+
 }
+
 func changeDNA(a, b string) int {
 	match := 0
 	length := len(a)
