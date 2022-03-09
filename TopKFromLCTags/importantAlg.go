@@ -274,3 +274,82 @@ func SqrtNewton(a int) float64 {
 	}
 	return x
 }
+
+// 最长回文子串
+// 1. 中心轴对称法
+//	无须奇偶讨论
+// 2. dp[i][j]代表 i-j 位置上最长子串长度
+//	注意 j-i<3特殊处理
+// 3. 双指针
+// 4. 马拉车算法
+//	先处理源字符串变为奇数，两端和中间插入异字符
+//	构造回文半径数组，p[i]代表i 下标处的回文长度；回文半径==原字符串回文长度
+func LongestPalindromeSubstring01(s string) string {
+	if len(s) == 0 {
+		return ""
+	}
+	res := ""
+	for i := 0; i < len(s); i++ {
+		res = helper01(s, i, i, res)
+		res = helper01(s, i, i+1, res)
+	}
+	return res
+}
+func helper01(s string, l, r int, res string) string {
+	sub := ""
+	for r < len(s) && l >= 0 && s[l] == s[r] {
+		sub = s[l : r+1]
+		l--
+		r++
+	}
+	if len(sub) < len(res) {
+		return res
+	}
+	return sub
+}
+
+func LongestPalindromeSubstring02(s string) string {
+	res, dp := "", make([][]bool, len(s))
+	for i := 0; i < len(s); i++ {
+		dp[i] = make([]bool, len(s))
+	}
+	for i := len(s) - 1; i >= 0; i-- {
+		for j := i; j < len(s); j++ {
+			dp[i][j] = (s[i] == s[j]) && ((j-i < 3) || dp[i+1][j-1])
+			if dp[i][j] && (res == "" || (j-i+1) > len(res)) {
+				res = s[i : j+1]
+			}
+		}
+	}
+	return res
+}
+
+func LongestPalindromeSubstring03(s string) string {
+	if len(s) == 0 {
+		return ""
+	}
+	l, r, pl, pr := 0, 0, 0, 0
+	for l < len(s) {
+		// 找到不相同的边界
+		for r < len(s) && s[l] == s[r] {
+			r++
+		}
+		// 移动到回文子串的两端
+		for l-1 >= 0 && r+1 < len(s) && s[l-1] == s[r+1] {
+			l--
+			r++
+		}
+		if r-l > pr-pl {
+			pl, pr = l, r
+		}
+		// 重置回文中心
+		l = (r-l)>>1 + 1
+		r = l
+	}
+	return s[pl : pr+1]
+}
+
+// 马拉车
+func LongestPalindromeSubstring04(s string) string {
+
+}
