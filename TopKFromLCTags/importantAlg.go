@@ -14,7 +14,7 @@ func longestCommonSubstring(a string, b string) int {
 	res := 0
 	for i := 0; i < m; i++ {
 		for j := 0; j < n; j++ {
-			if a[i] == a[j] {
+			if a[i] == b[j] {
 				if i >= 1 && j >= 1 {
 					// 为二维表格斜上方值加一
 					dp[i][j] = dp[i-1][j-1] + 1
@@ -132,4 +132,145 @@ func min(i, j int) int {
 		return j
 	}
 	return i
+}
+
+// 搜索二维矩阵
+/*
+在二维有序矩阵中查找 target 每行每列均是有序
+1. 从右上角开始vertex，左侧 dec 右侧 inc
+2. 不断从右上角思考，target>vertex 则排除目前首行row++，target<vertex则排除目前最后一列col--
+*/
+
+func searchMatrix(matrix [][]int, target int) bool {
+	if len(matrix) == 0 || len(matrix[0]) == 0 {
+		return false
+	}
+	m, n := len(matrix), len(matrix[0])
+	row, col := 0, n-1
+	vertex := matrix[row][col]
+	for row < m && col >= 0 {
+		vertex = matrix[row][col]
+		if target == vertex {
+			return true
+		} else if target < vertex {
+			col--
+		} else if target > vertex {
+			row++
+		}
+	}
+	return false
+}
+
+// 给定数组的最大连续子序列之和
+// 前缀和，找出 j 左侧的前缀和的最小值
+func LargestSumContiguousSubarray(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	min, sum, max := 0, 0, nums[0]
+	for j := 0; j < len(nums); j++ {
+		sum += nums[j]
+		delta := sum - min
+		if delta > max {
+			max = delta
+		}
+		if sum < min {
+			min = sum
+		}
+	}
+	return max
+}
+
+// dp dp[i]代表 i 下标的最大数组和
+func LargestSumContiguousSubarrayDP(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	max, dp := 0, make([]int, len(nums))
+	dp[0] = nums[0]
+	for i := 1; i < len(nums); i++ {
+		if dp[i-1] > 0 {
+			dp[i] = dp[i-1] + nums[i]
+		} else {
+			dp[i] = nums[i]
+		}
+		if max < dp[i] {
+			max = dp[i]
+		}
+	}
+	return max
+}
+
+// 加法实现
+// 位运算
+func Add(a, b int) int {
+	if a == 0 {
+		return b
+	}
+	for a != 0 {
+		c := (a & b) << 1
+		s := a ^ b
+		a = c
+		b = s
+	}
+	return b
+}
+
+// 乘法
+// 1. 重复多次加法
+// 2. 使用二分,把较小的数二分
+func MulRecursive(a, b int) int {
+	var max, min int
+	if a > b {
+		max, min = a, b
+	} else {
+		max, min = b, a
+	}
+	if min%2 == 1 {
+		return MulRecursive(min-1, max) + max
+	}
+	half := MulRecursive(min>>1, max)
+	return half << 1
+}
+
+// 求平方根
+// 1. 二分法
+// 2. 牛顿迭代法
+
+func Sqrt(a int) int {
+	if a == 0 {
+		return 0
+	}
+	if a == 1 {
+		return 1
+	}
+	l, r := 0, a
+	for l < r {
+		mid := l + (r-l)/2
+		if mid < a/mid {
+			l = mid + 1
+		} else if mid > a/mid {
+			r = mid - 1
+		} else {
+			return mid
+		}
+	}
+	if l > a/l {
+		return l - 1
+	}
+	return l
+}
+
+func SqrtNewton(a int) float64 {
+	if a == 0 {
+		return 0
+	}
+	x, d := float64(a)*1.0, 0.0
+	for x-float64(a)/x > 0 {
+		d = x/2.0 - float64(a)/x/2.0
+		if d < 1e-6 {
+			break
+		}
+	}
+	return x
 }
