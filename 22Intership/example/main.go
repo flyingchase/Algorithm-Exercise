@@ -2,7 +2,7 @@ package main
 
 import (
 	intership "22intership"
-	codetop "22intership/codeTop"
+	interview "22intership/interviewOffer"
 	"fmt"
 )
 
@@ -52,11 +52,8 @@ func main() {
 	// 	fmt.Println(res)
 	// }
 
-	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	fmt.Println(intership.MovingAverage(nums, 3))
-
-	substring3 := codetop.LengthOfLongestSubstring3("pwwkew")
-	fmt.Println(substring3)
+	// fmt.Println(interview.MinArray([]int{3, 4, 5, 1, 2}))
+	fmt.Println(interview.ReversePairs([]int{7, 5, 6, 4}))
 
 }
 
