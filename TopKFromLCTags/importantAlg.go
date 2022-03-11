@@ -1,7 +1,6 @@
 package topkTags
 
 // 最长公共子串和最长公共子序列
-
 func longestCommonSubstring(a string, b string) int {
 	if len(a) == 0 || len(b) == 0 {
 		return 0
@@ -351,5 +350,5 @@ func LongestPalindromeSubstring03(s string) string {
 
 // 马拉车
 func LongestPalindromeSubstring04(s string) string {
-
+	return s
 }
