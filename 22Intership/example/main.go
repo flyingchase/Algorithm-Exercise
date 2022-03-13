@@ -53,7 +53,9 @@ func main() {
 	// }
 
 	// fmt.Println(interview.MinArray([]int{3, 4, 5, 1, 2}))
-	fmt.Println(interview.ReversePairs([]int{7, 5, 6, 4}))
+	// fmt.Println(codetop.LengthOfLongestSubstring("abcabcbb"))
+	// fmt.Println(interview.TranslateNum(624))
+	fmt.Println(interview.LengthOfLongestSubstring("abcabcbb"))
 
 }
 
