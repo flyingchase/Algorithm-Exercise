@@ -7,28 +7,40 @@ type Node struct {
 }
 
 func treeToDoublyList(root *Node) *Node {
-	if root == nil || (root.Left == nil && root.Right == nil) {
+	if root == nil {
+		return root
+	}
+	if root.Left == nil && root.Right == nil {
+		root.Left = root
+		root.Right = root
 		return root
 	}
 	stack := make([]*Node, 0)
 	cur := root
-	dummtRoot := &Node{Val: -1}
-	var min *Node
-	first := true
+	var prev, head *Node
 	for cur != nil || len(stack) != 0 {
 		for cur != nil {
 			stack = append(stack, cur)
 			cur = cur.Left
 		}
 		node := stack[len(stack)-1]
-		if first {
-			min = node
-			first = false
-			dummtRoot.Left = min
-		}
 		stack = stack[:len(stack)-1]
+		// 首次遍历,记录头结点
+		if prev == nil {
+			head = node
+		} else {
+			// 非首次则prev 与出栈 node 链接
+			prev.Right = node
+			node.Left = prev
+		}
+		// prev 前驱记录当前node
+		prev = node
 		cur = node.Right
-		node.Left = cur
 	}
-	return min
+	// 最后一个指针和 head 指针组成循环双链表
+	if prev != nil && head != nil {
+		prev.Right = head
+		head.Left = prev
+	}
+	return head
 }

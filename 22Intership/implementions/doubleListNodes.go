@@ -20,7 +20,6 @@ func NewDoubleListNode() *DoubleListNode {
 	}
 }
 func (d *DoubleListNode) Get(index int) *DoubleListNode {
-	cur := d
 	for i := 0; i < index; i++ {
 	}
 	return &DoubleListNode{}
