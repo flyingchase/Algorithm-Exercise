@@ -94,3 +94,8 @@ func checkInclusion(s1 string, s2 string) bool {
 	}
 	return reflect.DeepEqual(map1, map2)
 }
+
+// M-395-至少有 k 个重复字符的最长子串
+// s 中的最长子串，其中每个字符出现次数>=k
+func longestSubstring(s string, k int) int {
+}
