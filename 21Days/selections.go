@@ -98,4 +98,9 @@ func checkInclusion(s1 string, s2 string) bool {
 // M-395-至少有 k 个重复字符的最长子串
 // s 中的最长子串，其中每个字符出现次数>=k
 func longestSubstring(s string, k int) int {
+	if len(s) == 0 {
+		return 0
+	}
+	res, l, r := 0, 0, 0
+
 }
