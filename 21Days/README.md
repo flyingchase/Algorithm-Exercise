@@ -30,3 +30,23 @@
 
 215.数组中的第K个最大元素【中等】https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
 
+
+
+
+
+## 2nd
+
+25. K 个一组翻转链表【困难】https://leetcode-cn.com/problems/reverse-nodes-in-k-group/
+
+- 先写出在 l,r 区间内逆转链表的操作：
+  - dummyHead 和 `i:=l;i<r;i++`
+- 在整个链表中循环调用 `reverseBetween(head,l,r)`
+  - 注意边界和循环条件：`for i:=1;i*k<=count;i++ { head=reverseBetween(head,(i--1)*k+1,i*k)}`
+
+25. 三数之和【中等】https://leetcode-cn.com/problems/3sum/
+
+- 注意非重复的优化
+
+25. 排序数组（此题请至少尝试2种及以上的排序算法）【中等】https://leetcode-cn.com/problems/sort-an-array
+
+- 1st 的 215 已完成常见三种 nlogn 算法的实现
