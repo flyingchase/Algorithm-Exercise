@@ -97,10 +97,59 @@ func checkInclusion(s1 string, s2 string) bool {
 
 // M-395-至少有 k 个重复字符的最长子串
 // s 中的最长子串，其中每个字符出现次数>=k
-func longestSubstring(s string, k int) int {
-	if len(s) == 0 {
-		return 0
-	}
-	res, l, r := 0, 0, 0
+//func longestSubstring(s string, k int) int {
+//	if len(s) == 0 {
+//		return 0
+//	}
+//	res, l, r := 0, 0, 0
+//
+//}
 
+// 剑指offer=26-树的子结构
+func IsSubStructure(A *TreeNode, B *TreeNode) bool {
+	if B == nil || A == nil {
+		return false
+	}
+	if A.Val == B.Val && Helper(A.Left, B.Left) && Helper(A.Right, B.Right) {
+		return true
+	}
+	return IsSubStructure(A.Left, B) || IsSubStructure(A.Right, B)
+}
+func Helper(a *TreeNode, b *TreeNode) bool {
+	if b == nil {
+		return true
+	}
+	if a == nil || a.Val != b.Val {
+		return false
+	}
+	return Helper(a.Left, b.Left) && Helper(a.Right, b.Right)
+}
+
+func levelOrder(root *TreeNode) [][]int {
+	if root == nil {
+		return nil
+	}
+	res, cur := [][]int{}, root
+	queue := make([]*TreeNode, 0)
+	queue = append(queue, cur)
+	for len(queue) != 0 {
+		size := len(queue)
+		tep := []int{}
+		for size > 0 {
+			size--
+			node := queue[0]
+			queue = queue[1:]
+			tep = append(tep, node.Val)
+			if node.Left != nil {
+				queue = append(queue, node.Left)
+			}
+			if node.Right != nil {
+				queue = append(queue, node.Right)
+			}
+		}
+		if tep != nil {
+			res = append(res, tep)
+		}
+	}
+	return res
 }

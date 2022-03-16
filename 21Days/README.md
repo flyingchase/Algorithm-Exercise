@@ -50,3 +50,59 @@
 25. 排序数组（此题请至少尝试2种及以上的排序算法）【中等】https://leetcode-cn.com/problems/sort-an-array
 
 - 1st 的 215 已完成常见三种 nlogn 算法的实现
+
+
+
+
+
+## 3rd
+
+
+
+1. 两数之和【简单】https://leetcode-cn.com/problems/two-sum/
+121. 买卖股票的最佳时机【简单】https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
+3. 环形链表【简单】https://leetcode-cn.com/problems/linked-list-cycle/
+4. 剑指 Offer 26. 树的子结构【中等】https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/
+102. 二叉树的层序遍历【中等】https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
