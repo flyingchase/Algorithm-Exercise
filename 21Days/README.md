@@ -60,11 +60,24 @@
 
 
 1. 两数之和【简单】https://leetcode-cn.com/problems/two-sum/
-121. 买卖股票的最佳时机【简单】https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
-3. 环形链表【简单】https://leetcode-cn.com/problems/linked-list-cycle/
-4. 剑指 Offer 26. 树的子结构【中等】https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/
-102. 二叉树的层序遍历【中等】https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
 
+   简单遍历即可
+
+2. 买卖股票的最佳时机【简单】https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/
+
+3. 环形链表【简单】https://leetcode-cn.com/problems/linked-list-cycle/
+
+   快慢指针
+
+4. 剑指 Offer 26. 树的子结构【中等】https://leetcode-cn.com/problems/shu-de-zi-jie-gou-lcof/
+
+   递归，注意条件
+
+   `a==nil||b==nil false;a.val==b.val&&helper(a.left,b.left)&&helper(a.right,b.right) true;returen isSub(a.l,b)||isSub(a.r,b)`
+
+5. 二叉树的层序遍历【中等】https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+
+   宽度优先遍历即可
 
 
 
