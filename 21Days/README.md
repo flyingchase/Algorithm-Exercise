@@ -93,9 +93,27 @@
 
 
 
+## 4th
+
+剑指 Offer 14- I. 剪绳子【中等】https://leetcode-cn.com/problems/jian-sheng-zi-lcof/
 
 
 
+160. 相交链表【简单】https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
+
+     
+
+161. 二叉树的锯齿形层序遍历【中等】https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/
+
+     1. 
+
+162. 有效的括号【简单】https://leetcode-cn.com/problems/valid-parentheses/
+
+     1. 
+
+163. 合并两个有序数组【简单】https://leetcode-cn.com/problems/merge-sorted-array/
+
+     1. 
 
 
 
