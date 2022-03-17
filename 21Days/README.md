@@ -101,19 +101,19 @@
 
 160. 相交链表【简单】https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
 
-     
+     双指针，先得到两表长度，长链先走 gap，再同步走直至相遇，返回相遇结点/nil
 
 161. 二叉树的锯齿形层序遍历【中等】https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/
 
-     1. 
+     宽度优先遍历，维护 flag 变量不断逆转 tmp
 
 162. 有效的括号【简单】https://leetcode-cn.com/problems/valid-parentheses/
 
-     1. 
+     栈：左括号入栈，右括号与栈顶匹配；最后返回栈空否
 
 163. 合并两个有序数组【简单】https://leetcode-cn.com/problems/merge-sorted-array/
 
-     1. 
+     merge 归并排序
 
 
 
@@ -137,3 +137,4 @@
 
 
 
+、
