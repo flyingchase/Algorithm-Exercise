@@ -119,7 +119,17 @@
 
 
 
+## 5th
 
+剑指 Offer 43. 1～n 整数中 1 出现的次数【困难】https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/
+
+​	
+
+236. 二叉树的最近公共祖先【中等】https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+
+     
+
+237. 搜索旋转排序数组【中等】https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
 
 
 
