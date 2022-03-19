@@ -127,10 +127,52 @@
 
 236. 二叉树的最近公共祖先【中等】https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
 
-     
+     递归，注意判断：
+
+     ``` go
+     if l!=nil {
+         if r!=nil {
+             return root
+         }
+         return l
+     }
+     return r
+     ```
+
+     hashmap 存储父节点，从 pq 分别向上遍历，碰见相同结点则为公共祖先。
 
 237. 搜索旋转排序数组【中等】https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
 
+左侧有序在内查找
+
+
+
+
+
+
+
+## 6th
+
+5. 最长回文子串【中等】https://leetcode-cn.com/problems/longest-palindromic-substring/
+
+   中心轴对称
+
+   滑动窗口
+
+   dp
+
+6. 岛屿数量【中等】https://leetcode-cn.com/problems/number-of-islands/
+
+   dfs 搜索 bfs
+
+7. 全排列【中等】https://leetcode-cn.com/problems/permutations/
+
+   回溯 注意去重
+
+8. 字符串相加【简单】https://leetcode-cn.com/problems/add-strings/
+
+
+​		注意余数 `carry=(n1+n2+carry)/10` 每次入结果时`res=strconv.Itoa(sum%10)+res`逆
 
 
 
@@ -147,4 +189,24 @@
 
 
 
-、
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
