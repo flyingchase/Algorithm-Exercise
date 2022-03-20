@@ -56,15 +56,42 @@ func lengthOfLIS(nums []int) int {
 	for i := 0; i < len(nums); i++ {
 		dp[i] = 1
 	}
+	for i := 1; i < len(nums); i++ {
+		for j := 0; j < i; j++ {
+			if nums[j] < nums[i] {
+				dp[i] = max(dp[i], dp[j]+1)
+			}
+		}
+		res = max(dp[i], res)
+	}
 	return res
 }
 
+// 接雨水
 func trap(height []int) int {
-	if len(height) == 0 {
+	if len(height) <= 0 {
 		return 0
 	}
-	l, r := 0, len(height)-1
-	pl, pr := 0, 0
-	for l < r {
+	// start end 分别为 index 指针
+	// l,r 为高度
+	start, end, l, r := 0, len(height)-1, 0, 0
+	res := 0
+	for start < end {
+		if height[start] < height[end] {
+			if height[start] < l {
+				res += l - height[start]
+			} else {
+				l = height[start]
+			}
+			start++
+		} else {
+			if height[end] < r {
+				res += r - height[end]
+			} else {
+				r = height[end]
+			}
+			end--
+		}
 	}
+	return res
 }
