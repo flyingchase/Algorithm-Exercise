@@ -474,13 +474,25 @@ func LengthOfLongestSubstring3(s string) int {
 	res, l, r := 0, 0, 0
 	for r < len(s) {
 		// 右指针所指的 char 出现过且下标>左指针
-		if _,ok:=dict[s[r]];ok&&dict[s[r]]>=l {
-			l=dict[s[r]]+1
+		if _, ok := dict[s[r]]; ok && dict[s[r]] >= l {
+			l = dict[s[r]] + 1
 		}
-		if res<r-l+1 {
-			res=r-l+1
+		if res < r-l+1 {
+			res = r - l + 1
 		}
-		dict[s[r]]=r
+		dict[s[r]] = r
 	}
 	return res
+}
+
+func maxSubArray2(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	cur, sum := nums[0], nums[0]
+	for i := 1; i < len(nums); i++ {
+		if  {
+			
+		}
+	}
 }

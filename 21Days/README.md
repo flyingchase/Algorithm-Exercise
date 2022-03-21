@@ -184,6 +184,7 @@
 
 
 
+## 7th
 
 
 
@@ -191,11 +192,27 @@
 
 
 
+## 8th
 
+199. 二叉树的右视图【中等】https://leetcode-cn.com/problems/binary-tree-right-side-view/
 
+     宽度优先遍历，每次保留这一层 queue 的最后一个值即可
 
+200. 重排链表【中等】https://leetcode-cn.com/problems/reorder-list/
 
+     
 
+201. 二叉树的中序遍历【简单】https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
+
+     递归左根右，迭代 stack cur 到达最左结点过程中不断入栈
+
+202. 用栈实现队列【简单】https://leetcode-cn.com/problems/implement-queue-using-stacks/
+
+     双栈实现队列，in 栈和 out 栈
+
+203. 二分查找【简单】https://leetcode-cn.com/problems/binary-search/
+
+     板子题`l<=r`
 
 
 
