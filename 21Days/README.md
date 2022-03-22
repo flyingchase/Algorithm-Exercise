@@ -218,10 +218,29 @@
 
 
 
+## 9th
 
+70. 爬楼梯【简单】https://leetcode-cn.com/problems/climbing-stairs/
 
+    
 
+71. 删除链表的倒数第 N 个结点【中等】https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
 
+    快指针先走 n 步再同步走快慢指针，注意慢指针走前判断此时快指针是否到末尾，记录 prev 指针和虚拟头结点
+
+    `prev.next=slow.next return dummyHead.next`
+
+72. 合并区间【中等】https://leetcode-cn.com/problems/merge-intervals/
+
+    
+
+73. 剑指 Offer 22. 链表中倒数第k个节点【简单】https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/
+
+​	
+
+70. x 的平方根【简单】 https://leetcode-cn.com/problems/sqrtx/
+
+    
 
 
 

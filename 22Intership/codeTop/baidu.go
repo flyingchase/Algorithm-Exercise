@@ -5,6 +5,7 @@ import (
 	"container/heap"
 	"reflect"
 	"sort"
+	"strconv"
 	"testing"
 )
 
@@ -484,15 +485,66 @@ func LengthOfLongestSubstring3(s string) int {
 	}
 	return res
 }
-
-func maxSubArray2(nums []int) int {
-	if len(nums) == 0 {
-		return 0
+func intersection(nums1 []int, nums2 []int) []int {
+	dict1, dict2 := map[int]int{}, map[int]int{}
+	for i := 0; i < len(nums1); i++ {
+		dict1[nums1[i]]++
 	}
-	cur, sum := nums[0], nums[0]
-	for i := 1; i < len(nums); i++ {
-		if  {
-			
+	for i := 0; i < len(nums2); i++ {
+		dict2[nums2[i]]++
+	}
+	res := []int{}
+	for k := range dict1 {
+		if _, ok := dict2[k]; ok {
+			res = append(res, k)
 		}
 	}
+	return res
+}
+
+func isPalindrome(x int) bool {
+	s := strconv.Itoa(x)
+	l, r := 0, len(s)-1
+	for l <= r {
+		if s[l] != s[r] {
+			return false
+		}
+	}
+	return true
+}
+func search(nums []int, target int) int {
+	if len(nums) == 0 {
+		return -1
+	}
+	l, r := 0, len(nums)-1
+	for l <= r {
+		mid := l + (r-l)>>1
+		if nums[mid] == target {
+			return mid
+		}
+		// left part is ordered
+		if nums[mid] > nums[l] {
+			if target < nums[mid] && target >= nums[l] {
+				r = mid - 1
+			} else {
+				l = mid + 1
+			}
+		} else if nums[mid] < nums[r] {
+			// right part is ordered
+			if target > nums[mid] && target <= nums[r] {
+				l = mid + 1
+			} else {
+				r = mid - 1
+			}
+		} else {
+			// 相同情况
+			if nums[l] == nums[mid] {
+				l++
+			}
+			if nums[r] == nums[mid] {
+				r--
+			}
+		}
+	}
+	return -1
 }
