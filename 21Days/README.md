@@ -147,10 +147,6 @@
 
 
 
-
-
-
-
 ## 6th
 
 5. 最长回文子串【中等】https://leetcode-cn.com/problems/longest-palindromic-substring/
@@ -176,14 +172,6 @@
 
 
 
-
-
-
-
-
-
-
-
 ## 7th
 
 
@@ -200,7 +188,7 @@
 
 200. 重排链表【中等】https://leetcode-cn.com/problems/reorder-list/
 
-     
+     链表前一半入队，后一半入栈，奇数情况 mid 挂在最后，从队开始交替弹出队头和栈顶
 
 201. 二叉树的中序遍历【简单】https://leetcode-cn.com/problems/binary-tree-inorder-traversal/
 
@@ -244,5 +232,8 @@
 
 
 
+## 10th
 
-
+124. 二叉树中的最大路径和【困难】https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
+82. 删除排序链表中的重复元素 II【中等】https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/
+8. 字符串转换整数 (atoi)【中等】https://leetcode-cn.com/problems/string-to-integer-atoi/

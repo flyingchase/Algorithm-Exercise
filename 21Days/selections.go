@@ -125,31 +125,23 @@ func Helper(a *TreeNode, b *TreeNode) bool {
 	return Helper(a.Left, b.Left) && Helper(a.Right, b.Right)
 }
 
-func levelOrder(root *TreeNode) [][]int {
+// 二叉树中的最大路径和
+func MaxPathSum(root *TreeNode) int {
 	if root == nil {
-		return nil
+		return 0
 	}
-	res, cur := [][]int{}, root
-	queue := make([]*TreeNode, 0)
-	queue = append(queue, cur)
-	for len(queue) != 0 {
-		size := len(queue)
-		tep := []int{}
-		for size > 0 {
-			size--
-			node := queue[0]
-			queue = queue[1:]
-			tep = append(tep, node.Val)
-			if node.Left != nil {
-				queue = append(queue, node.Left)
-			}
-			if node.Right != nil {
-				queue = append(queue, node.Right)
-			}
-		}
-		if tep != nil {
-			res = append(res, tep)
-		}
+	max := math.MinInt32
+	// 最大和为l+root,r+root,l+r+root,root四个中的最大
+	HelperMaxPathSum(root, &max)
+	return max
+}
+func HelperMaxPathSum(node *TreeNode, max *int) int {
+	if node == nil {
+		return 0
 	}
-	return res
+	l, r := maxMax(0, helperMaxPathSum(node.Left, max)), maxMax(0, helperMaxPathSum(node.Right, max))
+	// 横向比较，停在当前节点
+	*max = maxMax(*max, l+r+node.Val)
+	// 纵向比较，左右子节点的最大值
+	return maxMax(l, r) + node.Val
 }
