@@ -236,4 +236,23 @@
 
 124. 二叉树中的最大路径和【困难】https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
 82. 删除排序链表中的重复元素 II【中等】https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list-ii/
-8. 字符串转换整数 (atoi)【中等】https://leetcode-cn.com/problems/string-to-integer-atoi/
+126. 字符串转换整数 (atoi)【中等】https://leetcode-cn.com/problems/string-to-integer-atoi/
+
+
+
+
+
+
+
+
+
+## 11th
+
+148. 排序链表【中等】https://leetcode-cn.com/problems/sort-list/
+     1. 
+149. 两数相加【中等】https://leetcode-cn.com/problems/add-two-numbers/
+     1. 
+150. 下一个排列【中等】https://leetcode-cn.com/problems/next-permutation/
+     1. 
+151. 二叉树的前序遍历【简单】https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
+     1. 

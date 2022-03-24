@@ -5,6 +5,32 @@ import (
 	"reflect"
 )
 
+// 最大子数组之和
+func MaxSubArray(nums []int) int {
+	if len(nums) == 0 {
+		return 0
+	}
+	if len(nums) == 1 {
+		return nums[0]
+	}
+	// attention res=nums[0]
+	res := nums[0]
+	dp := make([]int, len(nums))
+	// dp[i] means index i has maxSubArray
+	dp[0] = nums[0]
+	for i := 1; i < len(nums); i++ {
+		if dp[i-1] > 0 {
+			dp[i] = dp[i-1] + nums[i]
+		} else {
+			dp[i] = nums[i]
+		}
+		if res < dp[i] {
+			res = dp[i]
+		}
+	}
+	return res
+}
+
 // M-64-二维网格找左上角到右下角的最小路径
 func minPathSum(grid [][]int) int {
 	if len(grid) == 0 || len(grid[0]) == 0 {
@@ -144,4 +170,73 @@ func HelperMaxPathSum(node *TreeNode, max *int) int {
 	*max = maxMax(*max, l+r+node.Val)
 	// 纵向比较，左右子节点的最大值
 	return maxMax(l, r) + node.Val
+}
+
+func lowestCommonAncestor3(root, p, q *TreeNode) *TreeNode {
+	// parent 记录各个子节点和对应的父节点映射
+	parent, visited := map[int]*TreeNode{}, map[int]bool{}
+	lcaDfs(root, &parent)
+
+	// 从 p q 开始向上遍历，不断移动
+	for p != nil {
+		// 记录 p 所访问过得路径
+		// 借助 map 向上查找
+		visited[p.Val] = true
+		p = parent[p.Val]
+	}
+	for q != nil {
+		if visited[q.Val] {
+			return q
+		}
+		q = parent[q.Val]
+	}
+	return nil
+}
+func lcaDfs1(node *TreeNode, parent *map[int]*TreeNode) {
+	if node == nil {
+		return
+	}
+	if node.Left != nil {
+		(*parent)[node.Left.Val] = node
+		lcaDfs(node.Left, parent)
+	}
+	if node.Right != nil {
+		(*parent)[node.Right.Val] = node
+		lcaDfs(node.Right, parent)
+	}
+}
+
+// k 个一组翻转链表
+func ReverseKGroup(head *ListNode, k int) *ListNode {
+	if head == nil {
+		return head
+	}
+	cur := head
+	count := 0
+	for cur != nil {
+		count++
+		cur = cur.Next
+	}
+	for i := 1; i*k <= count; i++ {
+		head = reverseBetween(head, (i-1)*k+1, i*k)
+	}
+	return head
+}
+func ReverseBetween(head *ListNode, l, r int) *ListNode {
+	if head == nil {
+		return head
+	}
+	dummtyHead := &ListNode{Val: -1, Next: head}
+	prev, cur := dummtyHead, head
+	for i := 0; i < l-1; i++ {
+		prev, cur = prev.Next, cur.Next
+	}
+	next := cur.Next
+	for i := l; i < r; i++ {
+		cur.Next = next.Next
+		next.Next = prev.Next
+		prev.Next = next
+		next = cur.Next
+	}
+	return dummtyHead.Next
 }

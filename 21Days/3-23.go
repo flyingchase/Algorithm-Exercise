@@ -2,7 +2,6 @@ package days
 
 import (
 	"math"
-	"runtime/internal/math"
 )
 
 // 删除排序链表中的重复项，只保留非重复部分
