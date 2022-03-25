@@ -3,6 +3,8 @@ package days
 import (
 	"math"
 	"reflect"
+	"strconv"
+	"strings"
 )
 
 // 最大子数组之和
@@ -239,4 +241,39 @@ func ReverseBetween(head *ListNode, l, r int) *ListNode {
 		next = cur.Next
 	}
 	return dummtyHead.Next
+}
+
+// 复原 ip 地址
+// dfs回溯
+func RestoreIpAddresses(s string) []string {
+	var res, path []string
+	backtrackRrestoreIP(s, path, 0, &res)
+	return res
+}
+func backtrackRrestoreIP1(s string, path []string, start int, res *[]string) {
+	if start == len(s) && len(path) == 4 {
+		tmp := strings.Join(path, ".")
+		*res = append(*res, tmp)
+	}
+	for i := start; i < len(s); i++ {
+		path = append(path, s[start:i+1])
+		if i-start <= 4 && len(path) <= 4 && isValidIP(s, start, i) {
+			backtrackRrestoreIP(s, path, i+1, res)
+		} else {
+			return
+		}
+		// 剪枝
+		path = path[:len(path)-1]
+	}
+}
+func isValidIP1(s string, start int, end int) bool {
+	check, _ := strconv.Atoi(s[start : end+1])
+	// 前导为 0
+	if end-start > 0 && s[start] == '0' {
+		return false
+	}
+	if check > 255 {
+		return false
+	}
+	return true
 }
