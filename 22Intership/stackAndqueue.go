@@ -68,9 +68,9 @@ func (m *MinStack) Push(x int) {
 func (m *MinStack) Pop() int {
 	if len(m.data) != 0 {
 		if m.data[len(m.data)] == m.mini[len(m.mini)] {
-			x := m.mini[len(m.mini)]
-			m.mini = m.mini[:len(m.mini)]
-			m.data = m.data[:len(m.data)]
+			x := m.mini[len(m.mini)-1]
+			m.mini = m.mini[:len(m.mini)-1]
+			m.data = m.data[:len(m.data)-1]
 			return x
 		}
 		x := m.mini[len(m.mini)-1]

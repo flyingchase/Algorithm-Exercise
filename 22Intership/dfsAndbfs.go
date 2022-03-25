@@ -215,8 +215,8 @@ func nextpermutation(nums []int) {
 	}
 	// 不存在更大的排列
 	if i < 0 {
-		for i, j := 0, len(nums)-1; i < j; i, j = i+1, j-1 {
-			nums[i], nums[j] = nums[j], nums[i]
+		for ii, j := 0, len(nums)-1; ii < j; ii, j = ii+1, j-1 {
+			nums[ii], nums[j] = nums[j], nums[ii]
 		}
 		return
 	}
