@@ -267,3 +267,10 @@
 93. 复原 IP 地址【中等】https://leetcode-cn.com/problems/restore-ip-addresses/
 105. 从前序与中序遍历序列构造二叉树【中等】https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 104. 二叉树的最大深度【简单】https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
+
+## 13th
+72. 编辑距离【困难】https://leetcode-cn.com/problems/edit-distance/
+	
+1143. 最长公共子序列【中等】https://leetcode-cn.com/problems/longest-common-subsequence/
+
+22. 括号生成【中等】https://leetcode-cn.com/problems/generate-parentheses/
