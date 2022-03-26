@@ -413,3 +413,28 @@ func minDistanceMin(i, j int) int {
 	}
 	return i
 }
+
+// 二叉树中路径和等于 target 的所有路径
+func pathSum(root *TreeNode, targetSum int) [][]int {
+	if root == nil {
+		return nil
+	}
+	res := [][]int{}
+	dfsPathSum(&res, root, targetSum, 0, []int{})
+	return res
+}
+func dfsPathSum(res *[][]int, node *TreeNode, targetSum, curSum int, curPath []int) {
+	curPath = append(curPath, node.Val)
+	curSum += node.Val
+	if curSum == targetSum && node.Left == nil && node.Right == nil {
+		*res = append(*res, append([]int{}, curPath...))
+		return
+	}
+	if node.Left != nil {
+		dfsPathSum(res, node.Left, targetSum, curSum, curPath)
+	}
+	if node.Right != nil {
+		dfsPathSum(res, node.Right, targetSum, curSum, curPath)
+	}
+	curPath = curPath[:len(curPath)-1]
+}
