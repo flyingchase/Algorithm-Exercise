@@ -2,6 +2,7 @@ package codetop
 
 import (
 	"math"
+	"sort"
 )
 
 func LengthOfLongestSubstring(s string) int {
@@ -226,4 +227,48 @@ func (this *MinStack) Top() int {
 
 func (this *MinStack) GetMin() int {
 	return this.min[len(this.min)-1]
+}
+
+func combinationSum(candidates []int, target int) [][]int {
+	if len(candidates) == 0 {
+		return nil
+	}
+	res := [][]int{}
+	sort.Ints(candidates)
+	dfsCombinationSum(&res, candidates, []int{}, target, 0, 0)
+	return res
+}
+func dfsCombinationSum(res *[][]int, candidates, curPath []int, target, curSum, index int) {
+	if curSum == target {
+		*res = append(*res, append([]int{}, curPath...))
+		return
+	}
+	for i := index; i < len(candidates); i++ {
+		curPath = append(curPath, candidates[index])
+		curSum += candidates[index]
+		dfsCombinationSum(res, candidates, curPath, target, curSum, i)
+		curPath = curPath[:len(curPath)-1]
+	}
+}
+
+func combinationSum(candidates []int, target int) [][]int {
+	sort.Ints(candidates)
+	var ret [][]int
+	helper(candidates, target, 0, []int{}, &ret)
+	return ret
+}
+
+func helper(candidates []int, target, start int, temp []int, ret *[][]int) {
+	if target < 0 {
+		return
+	}
+	if target == 0 {
+		*ret = append(*ret, append([]int{}, temp...))
+		return
+	}
+	for i := start; i < len(candidates); i++ {
+		temp = append(temp, candidates[i])
+		helper(candidates, target-candidates[i], i, temp, ret)
+		temp = temp[:len(temp)-1]
+	}
 }
