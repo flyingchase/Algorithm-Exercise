@@ -274,3 +274,11 @@
 1143. 最长公共子序列【中等】https://leetcode-cn.com/problems/longest-common-subsequence/
 
 22. 括号生成【中等】https://leetcode-cn.com/problems/generate-parentheses/
+
+## 14th
+
+543. 二叉树的直径【简单】https://leetcode-cn.com/problems/diameter-of-binary-tree/
+112. 路径总和【简单】https://leetcode-cn.com/problems/path-sum/
+110. 平衡二叉树【简单】https://leetcode-cn.com/problems/balanced-binary-tree/
+129. 求根节点到叶节点数字之和【中等】https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/
+113. 路径总和 II【中等】https://leetcode-cn.com/problems/path-sum-ii/
