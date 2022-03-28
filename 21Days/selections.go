@@ -60,7 +60,6 @@ func minPathSum(grid [][]int) int {
 			dp[i][j] += minDistanceMin(dp[i-1][j], dp[i][j-1])
 		}
 	}
-
 	return dp[m-1][n-1]
 }
 func min(i, j int) int {
@@ -399,7 +398,7 @@ func minDistance(word1 string, word2 string) int {
 			left := dp[i][j-1] + 1
 			top := dp[i-1][j] + 1
 			left_top := dp[i-1][j-1] + 1
-			if word1[i] == word2[j] {
+			if word1[i-1] == word2[j-1] {
 				left_top = dp[i-1][j-1]
 			}
 			dp[i][j] = minDistanceMin(minDistanceMin(left, top), left_top)
@@ -541,4 +540,77 @@ func dfsSumNumbers(res *int, node *TreeNode, cur int) {
 	if node.Right != nil {
 		dfsSumNumbers(res, node.Right, cur)
 	}
+}
+
+// 最长有效括号
+/*
+在if s[i] == ')'的条件下：
+如果s[i-1] == '('，那么dp[i] = dp[i-2] + 2;
+如果s[i-1] != '('，那么就需要判断（从s[i-1]位置减去dp[i-1]大小的位置的值是否为'('，如果是，那就跟dp[i-dp[i-1]-2]的值相关，dp[i] = dp[i-dp[i-1]-2] + dp[i-1] + 2
+如果s[i] == '(':
+那dp[i] = 0
+*/
+func longestValidParentheses(s string) int {
+	count := len(s)
+	if count == 0 {
+		return 0
+	}
+	// 以 s[i]为最后一位的最长有效括号的长度
+	dp := make([]int, count)
+	dp[0] = 0
+	for i := 1; i < count; i++ {
+		if s[i] == ')' {
+			if s[i-1] == '(' {
+				if i > 1 {
+					dp[i] = dp[i-2] + 2
+				} else {
+					dp[i] = 2
+				}
+			} else {
+				if i > dp[i-1] {
+					if s[i-dp[i-1]-1] == '(' {
+						if i >= dp[i-1]+2 {
+							dp[i] = dp[i-dp[i-1]-2] + dp[i-1] + 2
+						} else {
+							dp[i] = dp[i-1] + 2
+						}
+					}
+				}
+			}
+		} else {
+			dp[i] = 0
+		}
+	}
+	max := 0
+	for _, v := range dp {
+		if max < v {
+			max = v
+		}
+	}
+	return max
+}
+
+// 滑动窗口的最大值
+func maxSlidingWindow(nums []int, k int) []int {
+	// 单调栈正向板子，window 存储 index 下标
+	res, window := []int{}, []int{}
+	for i := 0; i < len(nums); i++ {
+		// 双端队列，保证队首最大
+		// shrink
+		for len(window) > 0 && window[0] < i-k+1 {
+			window = window[1:]
+		}
+		// 单调栈，保证入栈递增
+		// adjust
+		for len(window) > 0 && nums[window[len(window)-1]] <= nums[i] {
+			window = window[:len(window)-1]
+		}
+		// extend
+		window = append(window, i)
+		// ready to in
+		if i >= k-1 {
+			res = append(res, nums[window[0]])
+		}
+	}
+	return res
 }

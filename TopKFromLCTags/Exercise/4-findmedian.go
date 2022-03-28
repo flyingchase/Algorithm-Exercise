@@ -64,11 +64,12 @@ func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 		if max.Len() == min.Len() {
 			// 两堆相等则先入大堆
 			// 此处错误
-			heap.Push(min, num)
-			heap.Push(max, heap.Pop(min))
-		} else {
 			heap.Push(max, num)
 			heap.Push(min, heap.Pop(max))
+
+		} else {
+			heap.Push(min, num)
+			heap.Push(max, heap.Pop(min))
 		}
 	}
 	var res float64
