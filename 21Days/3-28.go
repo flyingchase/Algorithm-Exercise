@@ -92,3 +92,33 @@ func maxSlidingWindow(nums []int, k int) []int {
 	}
 	return res
 }
+
+func nextPermutation(nums []int) {
+	if len(nums) <= 1 {
+		return
+	}
+	index := len(nums) - 2
+	// 第一个降序 num
+	for ; index >= 0 && nums[index] > nums[index+1]; index-- {
+	}
+	if index < 0 {
+		// 不存在更大排列
+		for i, j := 0, len(nums)-1; i < j; i, j = i+1, j-1 {
+			nums[i], nums[j] = nums[j], nums[i]
+		}
+		return
+	}
+	// 找第一个比 nums[index] 大的数
+	j := index + 1
+	for ; j < len(nums) && nums[j] > nums[index]; j++ {
+	}
+	// 多进一位
+	j--
+	// 替换
+	nums[index], nums[j] = nums[j], nums[index]
+	// 将 index 之后逆转
+	index++
+	for j := len(nums) - 1; index < j; j, index = j-1, index+1 {
+		nums[index], nums[j] = nums[j], nums[index]
+	}
+}

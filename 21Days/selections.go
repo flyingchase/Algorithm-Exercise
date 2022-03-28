@@ -614,3 +614,26 @@ func maxSlidingWindow(nums []int, k int) []int {
 	}
 	return res
 }
+
+// x的平方根
+func mySqrt(x int) int {
+	if x == 1 {
+		return 1
+	}
+	l, r := 0, x
+	for {
+		mid := l + (r-l)>>1
+		if l == mid {
+			return mid
+		}
+		sqrt := mid * mid
+		if sqrt == x {
+			return mid
+		} else if sqrt > x {
+			r = mid
+		} else {
+			l = mid
+		}
+	}
+	return l
+}

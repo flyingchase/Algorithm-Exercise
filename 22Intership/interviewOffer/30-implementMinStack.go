@@ -18,7 +18,7 @@ func (this *MinStack) Push(x int) {
 }
 
 func (this *MinStack) Pop() {
-	if len(this.mini) != 0 && this.mini[len(this.mini)-1] == this.data[len(this.data)] {
+	if len(this.mini) != 0 && this.mini[len(this.mini)-1] == this.data[len(this.data)-1] {
 		this.data = this.data[:len(this.data)-1]
 	}
 	this.mini = this.mini[:len(this.mini)-1]

@@ -62,5 +62,4 @@ func isPalindrome2(head *ListNode) bool {
 		prev = prev.Next
 	}
 	return true
-
 }
