@@ -282,3 +282,10 @@
 110. 平衡二叉树【简单】https://leetcode-cn.com/problems/balanced-binary-tree/
 129. 求根节点到叶节点数字之和【中等】https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/
 113. 路径总和 II【中等】https://leetcode-cn.com/problems/path-sum-ii/
+
+## 16th
+101. 对称二叉树【简单】https://leetcode-cn.com/problems/symmetric-tree/
+155. 最小栈【简单】https://leetcode-cn.com/problems/min-stack/
+234. 回文链表【简单】https://leetcode-cn.com/problems/palindrome-linked-list/
+98. 验证二叉搜索树【中等】https://leetcode-cn.com/problems/validate-binary-search-tree/
+470. 用 Rand7() 实现 Rand10()【中等】https://leetcode-cn.com/problems/implement-rand10-using-rand7/

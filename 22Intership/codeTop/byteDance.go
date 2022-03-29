@@ -272,3 +272,38 @@ func helper(candidates []int, target, start int, temp []int, ret *[][]int) {
 		temp = temp[:len(temp)-1]
 	}
 }
+
+// 单词搜索
+func exist(board [][]byte, word string) bool {
+	if len(board) == 0 {
+		return false
+	}
+	if len(board[0]) == 0 {
+		return false
+	}
+	m, n := len(board), len(board[0])
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if board[i][j] == word[0] {
+				if dfsExist(board, word, 0, i, j) {
+					return true
+				}
+			}
+		}
+	}
+	return false
+}
+func dfsExist(board [][]byte, word string, index, i, j int) bool {
+	if index == len(word)-1 {
+		return true
+	}
+	if i < 0 || j < 0 || i >= len(board) || j >= len(board[0]) || word[index] != board[i][j] {
+		return false
+	}
+	tmp := board[i][j]
+	board[i][j] = '#'
+	flag := false
+	flag = dfsExist(board, word, index+1, i-1, j) || dfsExist(board, word, index+1, i+1, j) || dfsExist(board, word, index+1, i, j+1) || dfsExist(board, word, index+1, i, j-1)
+	board[i][j] = tmp
+	return flag
+}
