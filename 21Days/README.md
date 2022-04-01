@@ -311,3 +311,10 @@
 64. 最小路径和【中等】https://leetcode-cn.com/problems/minimum-path-sum/
 322. 零钱兑换【中等】https://leetcode-cn.com/problems/coin-change/
 41. 缺失的第一个正数【困难】https://leetcode-cn.com/problems/first-missing-positive/
+
+## 19th
+169. 多数元素【简单】https://leetcode-cn.com/problems/majority-element/
+226. 翻转二叉树【简单】https://leetcode-cn.com/problems/invert-binary-tree/
+83. 删除排序链表中的重复元素【简单】https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+718. 最长重复子数组【中等】https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/
+48. 旋转图像【中等】https://leetcode-cn.com/problems/rotate-image/
