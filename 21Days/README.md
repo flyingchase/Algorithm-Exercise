@@ -318,3 +318,9 @@
 83. 删除排序链表中的重复元素【简单】https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
 718. 最长重复子数组【中等】https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray/
 48. 旋转图像【中等】https://leetcode-cn.com/problems/rotate-image/
+
+## 19th
+
+32. 最长有效括号【困难】https://leetcode-cn.com/problems/longest-valid-parentheses/
+165. 比较版本号【中等】https://leetcode-cn.com/problems/compare-version-numbers/
+39. 组合总和【中等】https://leetcode-cn.com/problems/combination-sum/
