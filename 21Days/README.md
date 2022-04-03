@@ -324,3 +324,9 @@
 32. 最长有效括号【困难】https://leetcode-cn.com/problems/longest-valid-parentheses/
 165. 比较版本号【中等】https://leetcode-cn.com/problems/compare-version-numbers/
 39. 组合总和【中等】https://leetcode-cn.com/problems/combination-sum/
+
+## 20th
+34. 在排序数组中查找元素的第一个和最后一个位置【中等】https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+62. 不同路径【中等】https://leetcode-cn.com/problems/unique-paths/
+162. 寻找峰值【中等】https://leetcode-cn.com/problems/find-peak-element/
+14. 最长公共前缀【简单】https://leetcode-cn.com/problems/longest-common-prefix/
