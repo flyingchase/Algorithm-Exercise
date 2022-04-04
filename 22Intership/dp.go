@@ -31,12 +31,12 @@ func countSubstringsPalindrome(s string) int {
 }
 
 func ts(s string) int {
-	if len(s)==0 {
-		return  0
+	if len(s) == 0 {
+		return 0
 	}
 	for i := 0; i < len(s); i++ {
 	}
-	return  0
+	return 0
 }
 
 // ========================================================================

@@ -2,7 +2,6 @@ package days
 
 import (
 	"math"
-	"runtime/internal/math"
 )
 
 // 验证对称二叉树
