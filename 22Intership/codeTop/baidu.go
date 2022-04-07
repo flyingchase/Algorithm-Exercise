@@ -141,6 +141,7 @@ func maxSubArray(nums []int) int {
 		return nums[0]
 	}
 	cur, sum := nums[0], nums[0]
+
 	for i := 1; i < len(nums); i++ {
 		cur = max(nums[i], cur+nums[i])
 		if cur > sum {
