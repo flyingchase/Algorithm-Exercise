@@ -133,7 +133,7 @@ func TestPermute(t *testing.T) {
 	}
 }
 
-func maxSubArray(nums []int) int {
+func MaxSubArray(nums []int) int {
 	if len(nums) == 0 {
 		return 0
 	}
@@ -159,7 +159,7 @@ func max(a, b int) int {
 	}
 	return b
 }
-func isValid(s string) bool {
+func IsValid(s string) bool {
 	if len(s) == 0 {
 		return true
 	}
