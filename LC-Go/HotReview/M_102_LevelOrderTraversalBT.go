@@ -22,7 +22,6 @@ func levelOrder(root *TreeNode) [][]int {
 				queue = append(queue, queue[i].Right)
 			}
 			temp = append(temp, queue[i].Val)
-
 		}
 		queue = queue[l:]
 		res = append(res, temp)
@@ -44,7 +43,6 @@ func levelOrder2(root *TreeNode) [][]int {
 		for size > 0 {
 			lists = append(lists, queue[0].Val)
 			queue = queue[1:]
-
 			if cur.Right != nil {
 				queue = append(queue, cur.Right)
 			}
@@ -98,7 +96,7 @@ func Test_levelOrder2(t *testing.T) {
 					},
 				},
 			},
-            want: [][]int{{1},{2}},
+			want: [][]int{{1}, {2}},
 		},
 	}
 	for _, tt := range tests {
