@@ -4,15 +4,6 @@ import (
 	"LC-Go/DataStructure"
 )
 
-/**
- * Definition for a binary tree node.
- * type TreeNode struct {
- *     Val int
- *     Left *TreeNode
- *     Right *TreeNode
- * }
- */
-
 type TreeNode = DataStructure.TreeNode
 
 func buildTree(preorder []int, inorder []int) *TreeNode {
