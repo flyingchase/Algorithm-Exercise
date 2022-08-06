@@ -20,6 +20,11 @@ func Q1(myTemplate string, keys, values []string) string {
 	}
 	s := strings.Split(myTemplate, "%")
 	s2 := strings.Join(s, "")
+	for index, str := range s {
+		if strconv {
+
+		}
+	}
 	return s2
 
 }
