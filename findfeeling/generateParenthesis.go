@@ -1,7 +1,6 @@
 package findfeeling
 
 func generateParenthesis(n int) []string {
-
 	if n == 0 {
 		return []string{}
 	}

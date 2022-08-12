@@ -24,6 +24,5 @@ func reverseBetween(head *ListNode, m int, n int) *ListNode {
 		// rightN 后移
 		rightNode = leftNode.Next
 	}
-
 	return dummyHead.Next
 }
