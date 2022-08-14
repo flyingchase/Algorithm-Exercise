@@ -7,7 +7,6 @@ LIS 最长上升子序列
 
 */
 func lengthOfLIS(nums []int) int {
-
 	dp, res := make([]int, len(nums)+1), 0
 	dp[0] = 0
 	for i := 1; i <= len(nums); i++ {
@@ -28,7 +27,6 @@ func max300(j int, i int) int {
 		return j
 	}
 }
-
 func lengthOfLIS1(nums []int) int {
 	dp := []int{}
 	for _, num := range nums {

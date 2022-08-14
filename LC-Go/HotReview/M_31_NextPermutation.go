@@ -7,7 +7,6 @@ func nextPermutation(nums []int) {
 			break
 		}
 	}
-
 	if i >= 0 {
 		for j = len(nums) - 1; j > i; j-- {
 			if nums[j] > nums[i] {

@@ -25,8 +25,8 @@ func lengthofLongestSubstring(s string) int {
 func max3(j int, i int) int {
 	if i > j {
 		return i
-	}else {
-	    return j
+	} else {
+		return j
 	}
 }
 func lengthofLongestSubstring1(s string) int {
@@ -34,39 +34,38 @@ func lengthofLongestSubstring1(s string) int {
 		return 0
 	}
 	var bitset [256]bool
-	res,left,right:=0,0,0
-	for left<len(s) {
+	res, left, right := 0, 0, 0
+	for left < len(s) {
 		if bitset[s[right]] {
-			bitset[s[left]]=false
+			bitset[s[left]] = false
 			left++
-		}else {
-			bitset[s[right]]=true
+		} else {
+			bitset[s[right]] = true
 			right++
 		}
-		if right-left>res {
-			res=right-left
+		if right-left > res {
+			res = right - left
 		}
-		if left +res>=len(s)||right>=len(s){
+		if left+res >= len(s) || right >= len(s) {
 			break
 		}
 	}
 	return res
 }
 
-func lengthOfLongestSubstring3(s string)int  {
+func lengthOfLongestSubstring3(s string) int {
 	if len(s) == 0 {
 		return 0
 	}
-	res,left,right:=0,0,0
-	indexes:=make(map[byte]int,len(s))
-	for left<len(s) {
-		if idx,ok:=indexes[s[left]];ok&&idx>=right {
-			right=idx+1
+	res, left, right := 0, 0, 0
+	indexes := make(map[byte]int, len(s))
+	for left < len(s) {
+		if idx, ok := indexes[s[left]]; ok && idx >= right {
+			right = idx + 1
 		}
-		indexes[s[left]]=left
+		indexes[s[left]] = left
 		left++
-		res= max3(res,left-right)
+		res = max3(res, left-right)
 	}
 	return res
 }
-

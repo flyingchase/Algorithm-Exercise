@@ -64,8 +64,7 @@ func dfsUnique(nums []int, res *[][]int, cur []int, index int, used *[]bool) {
 		dfsUnique(nums, res, cur, index+1, used)
 		// 去重时候注意 Used变化
 		// 剪枝
-
-		cur=cur[:len(cur)-1]
-		(*used)[i]=false
+		cur = cur[:len(cur)-1]
+		(*used)[i] = false
 	}
 }

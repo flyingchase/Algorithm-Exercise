@@ -4,7 +4,6 @@ package HotReview
 旋转数组中找数字
 	- 先找到转折点
 	- 二分查找
-
 */
 
 func serach(nums []int, target int) int {
@@ -14,7 +13,6 @@ func serach(nums []int, target int) int {
 	low, high := 0, len(nums)-1
 	for low <= high {
 		mid := low + ((high - low) >> 1)
-
 		if nums[mid] == target {
 			return mid
 		} else if nums[mid] > nums[low] {
@@ -23,11 +21,9 @@ func serach(nums []int, target int) int {
 			} else {
 				low = mid + 1
 			}
-
 		} else if nums[mid] < nums[high] {
 			if nums[mid] < target && target <= nums[high] {
 				low = mid + 1
-
 			} else {
 				high = mid - 1
 			}
