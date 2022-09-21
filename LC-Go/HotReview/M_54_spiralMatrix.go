@@ -2,6 +2,7 @@ package HotReview
 
 /*给定⼀个包含 m x n 个元素的矩阵（m ⾏, n 列），请按照顺时针螺旋顺序，返回矩阵中的所有元素。*/
 
+// spiralorder spire the matrix 90
 func spiralorder(maxtrix [][]int) []int {
 	m := len(maxtrix)
 	if m == 0 {

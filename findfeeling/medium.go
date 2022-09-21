@@ -4,6 +4,7 @@ import (
 	"container/heap"
 	"container/list"
 	"findfeeling/model"
+	"fmt"
 	"math"
 	"math/rand"
 	"sort"
@@ -17,7 +18,6 @@ func levelOrder(root *TreeNode) [][]int {
 		return nil
 	}
 	res := [][]int{}
-
 	flag := false
 	queue := make([]*TreeNode, 0)
 	queue = append(queue, root)
@@ -50,7 +50,6 @@ func levelOrder(root *TreeNode) [][]int {
 }
 
 func postOrderTraversalBT(root *TreeNode) []int {
-
 	if root == nil {
 		return nil
 	}
@@ -226,10 +225,8 @@ func lca(root *TreeNode, p, q *TreeNode) *TreeNode {
 			return root
 		}
 		return l
-
 	}
 	return r
-
 }
 
 // 最长上升子序列
@@ -817,4 +814,107 @@ func binarySearchLis(nums []int, l int, r int, target int) int {
 		}
 	}
 	return l
+}
+
+func numEnclaves(matrix [][]int) int {
+	if len(matrix) == 0 {
+		return 0
+	}
+	m, n := len(matrix), len(matrix[0])
+	var res int
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if i == 0 || j == 0 || i == m-1 || j == n-1 {
+				if matrix[i][j] == 0 {
+					dfsNum(matrix, i, j)
+				}
+			}
+		}
+	}
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if matrix[i][j] == 1 {
+				res++
+			}
+		}
+	}
+	return res
+}
+
+func dfsNum(matrix [][]int, i, j int) {
+	matrix[i][j] = 0
+	offsetX, offsetY := []int{1, -1, 0, 0}, []int{0, 0, 1, -1}
+	for k := 0; k < 4; k++ {
+		i += offsetX[k]
+		j += offsetY[k]
+		if i >= 0 && i < len(matrix) && j >= 0 && j < len(matrix[0]) && matrix[i][j] == 1 {
+			dfsNum(matrix, i, j)
+		}
+	}
+}
+
+func mergeTwoLists2(list1, list2 *ListNode) *ListNode {
+	if list1 == nil {
+		return list2
+	}
+	if list2 == nil {
+		return list1
+	}
+	dummyHead := new(ListNode)
+	p1, p2 := list1, list2
+	cur := dummyHead
+	for p1 != nil && p2 != nil {
+		if p1.Val <= p2.Val {
+			cur.Next = p1
+			p1 = p1.Next
+		} else {
+			cur.Next = p2
+			p2 = p2.Next
+		}
+		cur = cur.Next
+	}
+	if p1 != nil {
+		cur.Next = p1
+	}
+	if p2 != nil {
+		cur.Next = p2
+	}
+	return dummyHead.Next
+}
+
+func mergeKLists(lists []*ListNode) *ListNode {
+	length := len(lists)
+	if length < 1 {
+		return nil
+
+	}
+	if length == 1 {
+		return lists[0]
+
+	}
+
+	mid := length / 2
+	left := mergeKLists(lists[:mid])
+	right := mergeKLists(lists[mid:])
+	return mergeSelf(left, right)
+}
+
+func mergeSelf(left *ListNode, right *ListNode) *ListNode {
+	if left == nil {
+		return right
+	}
+	if right == nil {
+		return left
+	}
+	if left.Val < right.Val {
+		left.Next = mergeSelf(left.Next, right)
+		return left
+	}
+	right.Next = mergeSelf(right.Next, left)
+	return right
+}
+
+func demo() {
+	var str string = "abc  def ghi  "
+	fmt.Println(str)
 }

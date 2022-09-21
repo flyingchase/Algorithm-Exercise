@@ -26,6 +26,7 @@ func dfsSubsets(nums []int, cur []int, res *[][]int, index int) {
 		cur = cur[:len(cur)-1]
 	}
 }
+
 // 模拟 dfs
 func subset1(nums []int) [][]int {
 	res := make([][]int, 1)
@@ -40,6 +41,3 @@ func subset1(nums []int) [][]int {
 	}
 	return res
 }
-
-
-
