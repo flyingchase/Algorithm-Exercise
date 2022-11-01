@@ -918,3 +918,7 @@ func demo() {
 	var str string = "abc  def ghi  "
 	fmt.Println(str)
 }
+
+func quicksortTmp(nums []int, l, r int) {
+
+}
